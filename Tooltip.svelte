@@ -85,7 +85,7 @@
 		}
 	}
 </script>
-
+FUNKAR!
 <div class={`tooltip ${direction}`} bind:this={tooltipRef} style={tooltipStyles}>
 	<div class="inner">
 		<slot />
