@@ -4,11 +4,24 @@
 </script>
 
 <Crow horizontal up>
-	<div style="--flex: 2;">
+	<div class="sidebar" style="--flex: 2;">
 		<Navigation />
 	</div>
 	<div style="--flex: 10;">
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
   </div>
 </Crow>
+
+<style>
+  .sidebar {
+    width: 200px;
+    flex: unset;
+  }
+  .content {
+    width: 100%;
+    padding: 20px;
+  }
+</style>
 

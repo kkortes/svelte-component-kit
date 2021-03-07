@@ -1,18 +1,17 @@
 <script>
+  import { store, actions } from './store';
   import Crow from 'svelte-component-kit/Crow.svelte';
+
+  const { clickTab } = actions;
 </script>
 
 <div class="navigation">
   <Crow vertical left>
-    <div>
-      <div class="link">Crow</div>
-    </div>
-    <div>
-      <div class="link">Hexagon</div>
-    </div>
-    <div>
-      <div class="link">Tooltip</div>
-    </div>
+    {#each $store.tabs as {name}, index}
+      <div>
+        <div class="link" on:click={() => clickTab(index)} class:active={$store.activeTab === index}>{name}<span>.svelte</span></div>
+      </div>
+    {/each}
   </Crow>
 </div>
 
@@ -32,7 +31,14 @@
     background: #33383e;
     cursor: pointer;
   }
-  .link:active {
+  .link:is(.active) {
+    background: #33383e;
+  }
+  .link:is(:active, .active),
+  .link:is(:active, .active) span {
     color: #fff;
+  }
+  .link span {
+    color: #888b8f;
   }
 </style>
