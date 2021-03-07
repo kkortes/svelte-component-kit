@@ -1,8 +1,7 @@
 <script>
-	import Crow from 'svelte-component-kit/Crow.svelte';
+	import Layout from './Layout.svelte';
 </script>
 
-<Crow debug>
-	<div>Sidebar</div>
-	<div>Content</div>
-</Crow>
+<Layout>
+	Content
+</Layout>
