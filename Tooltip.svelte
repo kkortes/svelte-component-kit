@@ -35,29 +35,40 @@
 				height: parentH 
 			} = parent.getBoundingClientRect();
 		
-			const horizontalCheck = parentX + parentW / 2 - (parentW / 2 + childW) * dirX
-			
-			const leftCheck = vertical ? parentX + parentW / 2 - childW / 2 : horizontalCheck;
-			if (leftCheck < 0) {
-				horizontalBleed = leftCheck;
-			}
-			
-			const rightCheck = vertical ? parentX + parentW / 2 + childW / 2 : horizontalCheck;
+			 const horizontalCheck =
+        parentX + parentW / 2 - (parentW / 2 + childW) * dirX;
 
-			if (rightCheck > innerWidth) {
-				horizontalBleed = rightCheck - innerWidth;
-			}
-			
-			const verticalCheck = parentY + parentH / 2 - (parentH / 2) * dirY - childH * dirY;
-			const topCheck = vertical ? verticalCheck : parentY + parentH / 2 - childH / 2;
-			if (topCheck < 0) {
-				verticalBleed = topCheck;
-			}
-			
-			const bottomCheck = vertical ? verticalCheck : parentY + parentH / 2 + childH / 2;
-			if (bottomCheck > innerHeight) {
-				verticalBleed = bottomCheck - innerHeight;
-			}
+      const leftCheck = vertical
+        ? (parentX + parentW / 2) - childW / 2
+        : horizontalCheck;
+      if (leftCheck < 0) {
+				console.log('parent trueX', (parentX + parentW / 2))
+        horizontalBleed = leftCheck;
+      }
+
+      const rightCheck = vertical
+        ? parentX + parentW / 2 + childW / 2
+        : horizontalCheck;
+
+      if (rightCheck > innerWidth) {
+        horizontalBleed = rightCheck - innerWidth;
+      }
+
+      const verticalCheck =
+        parentY + parentH / 2 - (parentH / 2) * dirY - childH * dirY;
+      const topCheck = vertical
+        ? verticalCheck
+        : parentY + parentH / 2 - childH / 2;
+      if (topCheck < 0) {
+        verticalBleed = topCheck;
+      }
+
+      const bottomCheck = vertical
+        ? verticalCheck
+        : parentY + parentH / 2 + childH / 2;
+      if (bottomCheck > innerHeight) {
+        verticalBleed = bottomCheck - innerHeight;
+      }
 			
 			const verticalOffset = 
 						`calc(${vertical ? 100 : 50}% + ${verticalBleed * dirY}px)`;
@@ -86,8 +97,8 @@
 	}
 </script>
 
-<div class={`tooltip ${direction}`} bind:this={tooltipRef} style={tooltipStyles}>
-	<div class="inner">
+<div class={`tooltip ${direction}`} style={tooltipStyles}>
+	<div class="inner" bind:this={tooltipRef}>
 		<slot />
 	</div>
 	<div class="triangle" style={triangleStyles} />
