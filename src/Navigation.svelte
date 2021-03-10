@@ -1,7 +1,7 @@
 <script>
   import { store, actions } from './store';
   import Crow from 'svelte-component-kit/Crow.svelte';
-  import Icon from '../../svelte-component-kit/Icon.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
 
   const { clickTab } = actions;
 </script>
