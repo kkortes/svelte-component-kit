@@ -9,7 +9,7 @@ export default {
     };
   },
 	toggleSidebarOpen: (_payload, { sidebarOpen }) => ({ sidebarOpen: !sidebarOpen }),
-	clickTab: (index) => ({ activeTab: index }),
+	clickPage: (activePage) => ({ activePage }),
 	pickLayout: (index) => ({ activeLayout: index }),
 	resetAll: () => INITIAL_STORE
 };

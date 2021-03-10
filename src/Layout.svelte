@@ -1,6 +1,6 @@
 <script>
   import { store, actions } from "./store";
-  import Navigation from "./Navigation.svelte";
+  import Sidebar from "./Sidebar.svelte";
   import TopBar from "./TopBar.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
@@ -8,7 +8,7 @@
   const { toggleSidebarOpen } = actions;
 
   const toggleSidebar = ({ target }) => {
-    if (target.classList.contains("navigation")) {
+    if (target.classList.contains("sidebar")) {
       toggleSidebarOpen();
     }
   };
@@ -21,7 +21,7 @@
     on:click={toggleSidebar}
     class:open={$store.sidebarOpen}
   >
-    <Navigation />
+    <Sidebar />
     <div class="minimize-panel">
       <Icon name="right" color="#fff" size={24} />
     </div>

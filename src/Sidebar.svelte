@@ -3,17 +3,17 @@
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
 
-  const { clickTab } = actions;
+  const { clickPage } = actions;
 </script>
 
-<div class="navigation" class:open={$store.sidebarOpen}>
+<div class="sidebar" class:open={$store.sidebarOpen}>
   <Crow vertical left>
-    {#each $store.tabs as { name }, index}
+    {#each $store.pages as name}
       <div>
         <div
           class="link"
-          on:click={() => clickTab(index)}
-          class:active={$store.activeTab === index}
+          on:click={() => clickPage(name)}
+          class:active={$store.activePage === name}
         >
           <Icon {name} size={name === "home" ? 30 : 20} color="#cbd0d4" /><span
             class="name">{name}</span
@@ -25,12 +25,12 @@
 </div>
 
 <style>
-  .navigation {
+  .sidebar {
     width: 100%;
     height: 100%;
     background: #40464c;
   }
-  .navigation.open .link {
+  .sidebar.open .link {
     transform: translateX(-50px);
   }
   .link {

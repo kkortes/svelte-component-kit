@@ -13,7 +13,9 @@
 <Layout>
   <Component>
     <svelte:component
-      this={[Home, Icon, Code, Crow, Hexagon, Tooltip][$store.activeTab]}
+      this={[Home, Icon, Code, Crow, Hexagon, Tooltip][
+        $store.pages.indexOf($store.activePage)
+      ]}
     />
   </Component>
 </Layout>

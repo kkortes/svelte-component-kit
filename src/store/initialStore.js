@@ -9,25 +9,13 @@ export default {
 		'33 / 33 / 33',
 		'25 / 25 / 25 / 25'
 	],
-	activeTab: 0,
-	tabs: [
-    {
-      name: "home"
-    },
-		{
-			name: "icon"
-		},
-		{
-			name: "code"
-		},
-		{
-			name: 'crow'
-		},
-		{
-			name: 'hexagon'
-		},
-		{
-			name: 'tooltip'
-		},
+	activePage: "home",
+	pages: [
+    "home",
+    "icon",
+    "code",
+    "crow",
+    "hexagon",
+    "tooltip"
 	]
 };

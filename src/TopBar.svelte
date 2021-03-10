@@ -23,7 +23,7 @@
   });
 </script>
 
-<div class={`top-bar ${$store.activeTab === 0 ? "hidden" : ""}`}>
+<div class={`top-bar ${$store.activePage === "home" ? "hidden" : ""}`}>
   <Crow>
     {#each $store.layouts as layout, index}
       <div>

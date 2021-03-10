@@ -9,7 +9,7 @@
   </div>
 </div>
 
-{#if $store.activeTab !== 0}
+{#if $store.activePage !== "home"}
   <div class="wrap" bind:this={$store.refs["100"]}>
     <Crow fly>
       <div class="component">
@@ -19,7 +19,7 @@
   </div>
 {/if}
 
-{#if $store.activeTab !== 0}
+{#if $store.activePage !== "home"}
   <div class="wrap" bind:this={$store.refs["50 / 50"]}>
     <Crow fly>
       <div class="component">
@@ -32,7 +32,7 @@
   </div>
 {/if}
 
-{#if $store.activeTab !== 0}
+{#if $store.activePage !== "home"}
   <div class="wrap" bind:this={$store.refs["33 / 33 / 33"]}>
     <Crow fly>
       <div class="component">
@@ -48,7 +48,7 @@
   </div>
 {/if}
 
-{#if $store.activeTab !== 0}
+{#if $store.activePage !== "home"}
   <div class="wrap" bind:this={$store.refs["25 / 25 / 25 / 25"]}>
     <Crow fly>
       <div class="component">
@@ -67,7 +67,7 @@
   </div>
 {/if}
 
-{#if $store.activeTab !== 0}
+{#if $store.activePage !== "home"}
   <div style="height: 50px; width: 100%;" />
 {/if}
 

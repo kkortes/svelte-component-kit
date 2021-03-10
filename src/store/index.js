@@ -106,7 +106,8 @@ const queueResolver = async (queuePackage) => {
 };
 
 store.subscribe((s) => {
-  window.localStorage.setItem('store', JSON.stringify(s))
+  const { pages, layout, ...rest } = s;
+  window.localStorage.setItem('store', JSON.stringify(rest))
   actions = generateActions(true);
 });
 
