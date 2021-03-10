@@ -39,10 +39,9 @@
         parentX + parentW / 2 - (parentW / 2 + childW) * dirX;
 
       const leftCheck = vertical
-        ? (parentX + parentW / 2) - childW / 2
+        ? parentX + parentW / 2 - childW / 2
         : horizontalCheck;
       if (leftCheck < 0) {
-				console.log('parent trueX', (parentX + parentW / 2))
         horizontalBleed = leftCheck;
       }
 

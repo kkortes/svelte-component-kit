@@ -21,7 +21,7 @@
   class:down
   class:left
   class:debug
-  style={`--gutter: ${gutter};--flex: 0;`}
+  style={`--gutter: ${gutter};--flex: none;`}
 >
   <slot />
 </div>
@@ -37,7 +37,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    flex: var(--flex, unset);
+    flex: var(--flex, none);
   }
   .crow.horizontal :global(> *) {
     padding-left: calc(var(--gutter) * 1px);
