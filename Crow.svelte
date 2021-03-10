@@ -21,7 +21,7 @@
   class:down
   class:left
   class:debug
-  style={`--gutter: ${gutter};`}
+  style={`--gutter: ${gutter};--flex: 0;`}
 >
   <slot />
 </div>
