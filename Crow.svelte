@@ -111,9 +111,19 @@
   .left.vertical :global(> *) {
     justify-content: flex-start;
   }
-  .debug :global(> div:nth-child(1)) { background-color: gainsboro; }
-  .debug :global(> div:nth-child(2)) { background-color: silver; }
-  .debug :global(> div:nth-child(3)) { background-color: gray; }
-  .debug :global(> div:nth-child(4)) { background-color: dimgray; }
-  .debug :global(> div:nth-child(5)) { background-color: black; }
+  .debug :global(> div:nth-child(1)) {
+    background-color: gainsboro;
+  }
+  .debug :global(> div:nth-child(2)) {
+    background-color: silver;
+  }
+  .debug :global(> div:nth-child(3)) {
+    background-color: gray;
+  }
+  .debug :global(> div:nth-child(4)) {
+    background-color: dimgray;
+  }
+  .debug :global(> div:nth-child(5)) {
+    background-color: black;
+  }
 </style>
