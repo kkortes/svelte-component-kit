@@ -54,7 +54,7 @@
   }
   .link:hover {
     background: #33383e;
-    cursor: pointer;
+    cursor: normal;
   }
   .link:is(.active) {
     background: #33383e;

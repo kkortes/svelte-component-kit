@@ -29,13 +29,18 @@
 	}
 </script>
 
-<h1>Tooltip.svelte</h1>
+<div class="presentation">
+	<h1>Tooltip.svelte</h1>
 
-<div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
-  <span>Hover-<br />&<br />move me</span>
-	<Tooltip parent={parent} direction={activeMode}>
-		This tooltip contains a bunch of information and no matter where it is on the screen it will not leave the viewport!
-	</Tooltip>
+	<div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
+		<span>Hover-<br />&<br />move me</span>
+		<Tooltip parent={parent} direction={activeMode}>
+			This tooltip contains a bunch of information and no matter where it is on the screen it will not leave the viewport!
+		</Tooltip>
+	</div>
+</div>
+<div class="single">
+	
 </div>
 
 <svelte:window on:mousemove={mousemove} on:click={toggleMode} />
@@ -56,8 +61,8 @@
 		width: 80px;
 		height: 80px;
 		position: fixed;
-		left: 50%;
-		top: 50%;
+		left: 200px;
+		top: 200px;
 	}
 	span {
 		pointer-events: none;

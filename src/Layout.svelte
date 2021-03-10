@@ -1,8 +1,9 @@
 <script>
   import { store, actions } from './store';
   import Navigation from './Navigation.svelte';
+  import TopBar from './TopBar.svelte';
   import Crow from 'svelte-component-kit/Crow.svelte';
-  import Icon from '../../svelte-component-kit/Icon.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
 
   const { toggleSidebarOpen } = actions;
 
@@ -20,10 +21,9 @@
       <Icon name="right" color="#fff" size={24} />
     </div>
 	</div>
-	<div style="--flex: 10;">
-    <div class="content">
-      <slot />
-    </div>
+	<div class="main" style="--flex: 10;">
+    <slot />
+    <TopBar />
   </div>
 </Crow>
 
@@ -57,11 +57,10 @@
     min-width: 200px;
     max-width: 200px;
   }
-  .content {
-    margin: 0 auto;
-    max-width: 800px;
-    width: 100%;
-    padding: 20px;
+  .main {
+    padding-top: 50px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
 </style>
 

@@ -1,13 +1,17 @@
 <script>
 import Crow from "svelte-component-kit/Crow.svelte";
-import Code from "../../../svelte-component-kit/Code.svelte";
+import Code from "svelte-component-kit/Code.svelte";
 </script>
 
-<h1>Crow.svelte</h1>
+<div class="presentation">
+  <h1>Crow.svelte</h1>
 
-<Code>{"<Crow>content</Crow>"}</Code>
+  <Code>{"<Crow>content</Crow>"}</Code>
+</div>
 
-<Crow horizontal debug>
-  <div>a</div>
-  <div>b</div>
-</Crow>
+<div class="single">
+  <Crow horizontal debug>
+    <div>a</div>
+    <div>b</div>
+  </Crow>
+</div>

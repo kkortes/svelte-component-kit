@@ -2,8 +2,12 @@
   import Code from 'svelte-component-kit/Code.svelte'
 </script>
 
-<h1>Code.svelte</h1>
+<div class="presentation">
+  <h1>Code.svelte</h1>
+</div>
 
-<Code>
-  Highlighted
-</Code>
+<div class="single">
+  <Code>
+    Highlighted
+  </Code>
+</div>
