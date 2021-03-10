@@ -16,7 +16,8 @@
 
 <style>
   .sidebar {
-    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
     flex: unset;
   }
   .content {
