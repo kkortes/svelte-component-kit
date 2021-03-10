@@ -15,7 +15,9 @@ const generateID = () =>
     Math.round(performance.now())
   ).toString(36)}`;
 
-const store = writable({ ...INITIAL_STORE });
+const LS = window.localStorage.getItem('store') ? { ...JSON.parse(window.localStorage.getItem('store')) } : {};
+
+const store = writable({ ...INITIAL_STORE, ...LS });
 const queue = writable([]);
 
 let runningID,
@@ -103,7 +105,8 @@ const queueResolver = async (queuePackage) => {
   return resolve;
 };
 
-store.subscribe(() => {
+store.subscribe((s) => {
+  window.localStorage.setItem('store', JSON.stringify(s))
   actions = generateActions(true);
 });
 

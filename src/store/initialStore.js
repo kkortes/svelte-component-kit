@@ -1,20 +1,21 @@
 export default {
+	sidebarOpen: false,
 	activeTab: 0,
 	tabs: [
 		{
-			name: "Icon"
+			name: "icon"
 		},
 		{
-			name: "Code"
+			name: "code"
 		},
 		{
-			name: 'Crow'
+			name: 'crow'
 		},
 		{
-			name: 'Hexagon'
+			name: 'hexagon'
 		},
 		{
-			name: 'Tooltip'
+			name: 'tooltip'
 		},
 	]
 };
