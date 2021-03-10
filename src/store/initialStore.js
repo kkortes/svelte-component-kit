@@ -1,8 +1,9 @@
 export default {
 	sidebarOpen: false,
+	refs: {},
 	activeLayout: 0,
 	layouts: [
-		'information',
+		'how to use',
 		'100',
 		'50 / 50',
 		'33 / 33 / 33',
@@ -10,6 +11,9 @@ export default {
 	],
 	activeTab: 0,
 	tabs: [
+    {
+      name: "home"
+    },
 		{
 			name: "icon"
 		},

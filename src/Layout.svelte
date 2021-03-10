@@ -1,31 +1,37 @@
 <script>
-  import { store, actions } from './store';
-  import Navigation from './Navigation.svelte';
-  import TopBar from './TopBar.svelte';
-  import Crow from 'svelte-component-kit/Crow.svelte';
-  import Icon from 'svelte-component-kit/Icon.svelte';
+  import { store, actions } from "./store";
+  import Navigation from "./Navigation.svelte";
+  import TopBar from "./TopBar.svelte";
+  import Crow from "svelte-component-kit/Crow.svelte";
+  import Icon from "svelte-component-kit/Icon.svelte";
 
   const { toggleSidebarOpen } = actions;
 
   const toggleSidebar = ({ target }) => {
-    if (target.classList.contains('navigation')) {
+    if (target.classList.contains("navigation")) {
       toggleSidebarOpen();
     }
-  }
+  };
 </script>
 
 <Crow horizontal up>
-	<div class="sidebar" style="--flex: 2;" on:click={toggleSidebar} class:open={$store.sidebarOpen}>
-		<Navigation />
+  <div
+    class="sidebar"
+    style="--flex: 2;"
+    on:click={toggleSidebar}
+    class:open={$store.sidebarOpen}
+  >
+    <Navigation />
     <div class="minimize-panel">
       <Icon name="right" color="#fff" size={24} />
     </div>
-	</div>
-	<div class="main" style="--flex: 10;">
+  </div>
+  <div class="main" style="--flex: 10;" bind:this={$store.refs["main"]}>
     <slot />
-    <TopBar />
   </div>
 </Crow>
+
+<TopBar />
 
 <style>
   .minimize-panel {
@@ -40,18 +46,19 @@
     pointer-events: none;
   }
   .minimize-panel :global(.icon) {
-    transform: rotateY(0deg) ;
-    transition: transform .25s ease;
+    transform: rotateY(0deg);
+    transition: transform 0.25s ease;
   }
   .open .minimize-panel :global(.icon) {
-    transform: rotateY(180deg) ;
+    transform: rotateY(180deg);
   }
   .sidebar {
     position: relative;
     min-width: 50px;
     max-width: 50px;
     overflow: hidden;
-    transition: max-width .25s ease, min-width .25s ease;
+    transition: max-width 0.25s ease, min-width 0.25s ease;
+    z-index: 1;
   }
   .sidebar.open {
     min-width: 200px;
@@ -63,4 +70,3 @@
     overflow-y: scroll;
   }
 </style>
-
