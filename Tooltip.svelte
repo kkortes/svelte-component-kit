@@ -7,6 +7,7 @@
   export let direction = "up";
   export let parent = undefined;
   export let width = 200;
+  export let margin = "0 0 0 0";
 
   let tooltipRef;
   let tooltipStyles;
@@ -17,6 +18,10 @@
   tooltipStyles = generateStyles({
     width: `${width}px`,
   });
+
+  const [marginTop, marginRight, marginBottom, marginLeft] = margin
+    .split(" ")
+    .reduce((a, value) => [...a, parseInt(value, 10)], []);
 
   $: {
     if (tooltipRef && parent) {
@@ -42,16 +47,16 @@
       const leftCheck = vertical
         ? parentX + parentW / 2 - childW / 2
         : horizontalCheck;
-      if (leftCheck < 0) {
-        horizontalBleed = leftCheck;
+      if (leftCheck < 0 + marginLeft) {
+        horizontalBleed = leftCheck - marginLeft;
       }
 
       const rightCheck = vertical
         ? parentX + parentW / 2 + childW / 2
         : horizontalCheck;
 
-      if (rightCheck > innerWidth) {
-        horizontalBleed = rightCheck - innerWidth;
+      if (rightCheck > innerWidth + marginRight) {
+        horizontalBleed = rightCheck - (innerWidth + marginRight);
       }
 
       const verticalCheck =
@@ -59,15 +64,15 @@
       const topCheck = vertical
         ? verticalCheck
         : parentY + parentH / 2 - childH / 2;
-      if (topCheck < 0) {
-        verticalBleed = topCheck;
+      if (topCheck < 0 + marginTop) {
+        verticalBleed = topCheck - marginTop;
       }
 
       const bottomCheck = vertical
         ? verticalCheck
         : parentY + parentH / 2 + childH / 2;
-      if (bottomCheck > innerHeight) {
-        verticalBleed = bottomCheck - innerHeight;
+      if (bottomCheck > innerHeight + marginBottom) {
+        verticalBleed = bottomCheck - innerHeight + marginBottom;
       }
 
       const verticalOffset = `calc(${vertical ? 100 : 50}% + ${

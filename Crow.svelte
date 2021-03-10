@@ -32,6 +32,7 @@
     flex: 1 0 100%;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
   .crow :global(> *) {
     display: flex;
