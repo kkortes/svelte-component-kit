@@ -1,11 +1,20 @@
 <script>
   import { store, actions } from './store';
   import Crow from 'svelte-component-kit/Crow.svelte';
+  import Icon from '../../svelte-component-kit/Icon.svelte';
 
   const { clickTab } = actions;
 </script>
 
 <div class="navigation">
+  <div class="top">
+    <Crow vertical gutter={4}>
+      <div>
+        <a href="/"><Icon name="svelte" size={40} /></a>
+      </div>
+      <div>svelte component kit</div>
+    </Crow>
+  </div>
   <Crow vertical left>
     {#each $store.tabs as {name}, index}
       <div>
@@ -16,6 +25,14 @@
 </div>
 
 <style>
+  a:hover {
+    text-decoration: none;
+  }
+  .top {
+    background: linear-gradient(black, #40464c);
+    color: #fff;
+    padding: 40px 0;
+  }
   .navigation {
     width: 100%;
     height: 100%;
