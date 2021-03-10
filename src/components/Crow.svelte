@@ -98,9 +98,11 @@
     </tbody>
   </table>
 
-  <Code>{"<Crow />"}</Code> is the master of layouts. With it you can create lists,
+  <Code>{"<Crow />"}</Code> is short for column-row. With it you can create lists,
   grids and full page layouts.<br /><br />
-  All the layout of this website is created using crow :)
+  All the layout of this website is created using crow :)<br /><br />
+  This component was "ported" to Svelte from my
+  <a href="http://getcrow.eu" target="_blank">Crow framework</a>
 
   <h2>Usage</h2>
   <Code>
