@@ -4,6 +4,54 @@
   import Code from "svelte-component-kit/Code.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Tooltip from "svelte-component-kit/Tooltip.svelte";
+  import InteractiveTable from "./InteractiveTable.svelte";
+  import Table from "./Table.svelte";
+
+  let props = [
+    {
+      name: "name",
+      optional: false,
+      defaultValue: "",
+      type: "string",
+    },
+    {
+      name: "size",
+      optional: true,
+      defaultValue: 16,
+      type: "integer",
+    },
+    {
+      name: "color",
+      optional: true,
+      defaultValue: "#000000",
+      type: "hexstring",
+    },
+  ];
+
+  let demoProps = [
+    ...props.map((prop) => {
+      if (prop.name === "name") {
+        return {
+          ...prop,
+          defaultValue: "logo",
+        };
+      }
+
+      if (prop.name === "size") {
+        return {
+          ...prop,
+          defaultValue: 100,
+        };
+      }
+
+      return prop;
+    }),
+  ];
+
+  const changeProp = (propName, value) =>
+    (demoProps = demoProps.map((prop) =>
+      prop.name === propName ? { ...prop, defaultValue: value } : prop
+    ));
 </script>
 
 <div class="presentation">
@@ -17,40 +65,7 @@
     </a>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Prop</th>
-        <th>Optional</th>
-        <th>Default</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>name</td>
-        <td><span class="no">✗</span></td>
-        <td>''</td>
-        <td>string</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>size</td>
-        <td><span class="yes">✓</span></td>
-        <td>16</td>
-        <td>integer</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>color</td>
-        <td><span class="yes">✓</span></td>
-        <td>#000000</td>
-        <td>string</td>
-      </tr>
-    </tbody>
-  </table>
+  <Table {props} />
 
   Icons are provided using
   <a href="https://icomoon.io/" target="_blank">Icomoon</a>.<br /><br />
@@ -87,7 +102,15 @@
 </div>
 
 <div class="single">
-  <Icon name="logo" size={100} />
+  <Icon
+    name="logo"
+    {...demoProps.reduce(
+      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+      {}
+    )}
+  />
+
+  <InteractiveTable props={demoProps} {changeProp} />
 </div>
 
 <style>

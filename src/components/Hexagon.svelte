@@ -2,6 +2,28 @@
   import Code from "svelte-component-kit/Code.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Hexagon from "svelte-component-kit/Hexagon.svelte";
+  import InteractiveTable from "./InteractiveTable.svelte";
+  import Table from "./Table.svelte";
+
+  let props = [
+    {
+      name: "color",
+      optional: true,
+      defaultValue: "lightgray",
+      type: "hexstring",
+    },
+    {
+      name: "width",
+      optional: true,
+      defaultValue: 100,
+      type: "integer",
+    },
+  ];
+
+  const changeProp = (propName, value) =>
+    (props = props.map((prop) =>
+      prop.name === propName ? { ...prop, defaultValue: value } : prop
+    ));
 </script>
 
 <div class="presentation">
@@ -15,32 +37,7 @@
     </a>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Prop</th>
-        <th>Optional</th>
-        <th>Default</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>color</td>
-        <td><span class="yes">✓</span></td>
-        <td>'lightgray'</td>
-        <td>string</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>width</td>
-        <td><span class="yes">✓</span></td>
-        <td>100</td>
-        <td>integer</td>
-      </tr>
-    </tbody>
-  </table>
+  <Table {props} />
 
   <h2>Usage</h2>
   <Code>
@@ -49,5 +46,11 @@
 </div>
 
 <div class="single">
-  <Hexagon>Hex</Hexagon>
+  <Hexagon
+    {...props.reduce(
+      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+      {}
+    )}>Hex</Hexagon
+  >
+  <InteractiveTable {props} {changeProp} />
 </div>

@@ -2,6 +2,8 @@
   import Tooltip from "svelte-component-kit/Tooltip.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Code from "svelte-component-kit/Code.svelte";
+  import InteractiveTable from "./InteractiveTable.svelte";
+  import Table from "./Table.svelte";
   import { generateStyles } from "../helpers.js";
 
   const MODES = ["up", "right", "down", "left"];
@@ -10,6 +12,33 @@
   let parent;
   let randomDotStyles;
   let randomDotRef;
+
+  let props = [
+    {
+      name: "direction",
+      optional: true,
+      defaultValue: "up",
+      type: "up right down or left",
+    },
+    {
+      name: "parent",
+      optional: true,
+      defaultValue: undefined,
+      type: "[DOM reference]",
+    },
+    {
+      name: "width",
+      optional: true,
+      defaultValue: 200,
+      type: "integer",
+    },
+    {
+      name: "margin",
+      optional: true,
+      defaultValue: "0 0 0 0",
+      type: "string",
+    },
+  ];
 
   const toggleMode = () => {
     const index = MODES.indexOf(activeMode);
@@ -25,6 +54,11 @@
       top: `${clientY}px`,
     });
   };
+
+  const changeProp = (propName, value) =>
+    (props = props.map((prop) =>
+      prop.name === propName ? { ...prop, defaultValue: value } : prop
+    ));
 </script>
 
 <div class="presentation">
@@ -38,48 +72,7 @@
     </a>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Prop</th>
-        <th>Optional</th>
-        <th>Default</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>direction</td>
-        <td><span class="yes">✓</span></td>
-        <td>'up'</td>
-        <td>'up', 'right', 'down' or 'left'</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>parent</td>
-        <td><span class="yes">✓</span></td>
-        <td>undefined</td>
-        <td>[DOM reference]</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>width</td>
-        <td><span class="yes">✓</span></td>
-        <td>20</td>
-        <td>integer</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>margin</td>
-        <td><span class="yes">✓</span></td>
-        <td>'0 0 0 0'</td>
-        <td>string</td>
-      </tr>
-    </tbody>
-  </table>
+  <Table {props} />
 
   <strong>Responsive</strong><br />
   The parent of the tooltip can be any size and the tooltip renders correctly on
@@ -111,8 +104,14 @@
 </div>
 <div class="single">
   <div class="box">
-    <Tooltip>Lorem ipsum dolor sit amet.</Tooltip>
+    <Tooltip
+      {...props.reduce(
+        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+        {}
+      )}>Lorem ipsum dolor sit amet.</Tooltip
+    >
   </div>
+  <InteractiveTable {props} {changeProp} />
 </div>
 
 <svelte:window on:mousemove={mousemove} on:click={toggleMode} />
@@ -133,8 +132,9 @@
     width: 80px;
     height: 80px;
     position: fixed;
-    left: calc(100% - 100px);
+    left: 100px;
     top: 200px;
+    z-index: 30;
   }
   span {
     pointer-events: none;

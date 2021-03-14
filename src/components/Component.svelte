@@ -78,13 +78,12 @@
     align-items: center;
   }
   .component {
+    position: relative;
+    justify-content: center;
     flex: 1;
   }
   .component:not(.information) {
     background-image: url(/assets/grid.png);
-  }
-  .component {
-    justify-content: center;
   }
   .wrap {
     height: calc(100vh - 50px);

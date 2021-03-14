@@ -2,6 +2,70 @@
   import Crow from "svelte-component-kit/Crow.svelte";
   import Code from "svelte-component-kit/Code.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
+  import InteractiveTable from "./InteractiveTable.svelte";
+  import Table from "./Table.svelte";
+
+  let props = [
+    {
+      name: "gutter",
+      optional: true,
+      defaultValue: 0,
+      type: "integer",
+    },
+    {
+      name: "horizontal",
+      optional: true,
+      defaultValue: true,
+      type: "boolean",
+    },
+    {
+      name: "vertical",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+    {
+      name: "fly",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+    {
+      name: "up",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+    {
+      name: "right",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+    {
+      name: "down",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+    {
+      name: "left",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+    {
+      name: "debug",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
+  ];
+
+  const changeProp = (propName, value) =>
+    (props = props.map((prop) =>
+      prop.name === propName ? { ...prop, defaultValue: value } : prop
+    ));
 </script>
 
 <div class="presentation">
@@ -15,88 +79,7 @@
     </a>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Prop</th>
-        <th>Optional</th>
-        <th>Default</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>gutter</td>
-        <td><span class="yes">✓</span></td>
-        <td>0</td>
-        <td>integer</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>horizontal</td>
-        <td><span class="yes">✓</span></td>
-        <td>true</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>vertical</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>fly</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>up</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>right</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>down</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>left</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td>debug</td>
-        <td><span class="yes">✓</span></td>
-        <td>false</td>
-        <td>boolean</td>
-      </tr>
-    </tbody>
-  </table>
+  <Table {props} />
 
   <Code>{"<Crow />"}</Code> is short for column-row. With it you can create lists,
   grids and full page layouts.<br /><br />
@@ -111,16 +94,24 @@
 </div>
 
 <div class="single">
-  <Crow horizontal debug>
-    <div>a</div>
-    <div>b</div>
-    <div>c</div>
-    <div>d</div>
+  <Crow
+    {...props.reduce(
+      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+      {}
+    )}
+  >
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
   </Crow>
+  <InteractiveTable {props} {changeProp} />
 </div>
 
 <style>
   .single {
     width: 100%;
+    height: 100%;
+    display: flex;
   }
 </style>
