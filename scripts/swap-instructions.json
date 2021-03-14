@@ -1,5 +1,0 @@
-{
-  "svelte-component-kit": "file:../svelte-component-kit",
-  "buglife": "file:../svelte-component-kit",
-  "sirv-cli": "file:../svelte"
-}

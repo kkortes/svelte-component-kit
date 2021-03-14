@@ -6,8 +6,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public",
-    "swap-dependencies": "node ./scripts/swap-dependencies.js; npm install; node ./scripts/swap-dependencies.js;"
+    "start": "sirv public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
