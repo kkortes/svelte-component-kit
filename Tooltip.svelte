@@ -19,7 +19,7 @@
     width: `${width}px`,
   });
 
-  const [marginTop, marginRight, marginBottom, marginLeft] = margin
+  $: [marginTop, marginRight, marginBottom, marginLeft] = margin
     .split(" ")
     .reduce((a, value) => [...a, parseInt(value, 10)], []);
 
@@ -55,8 +55,8 @@
         ? parentX + parentW / 2 + childW / 2
         : horizontalCheck;
 
-      if (rightCheck > innerWidth + marginRight) {
-        horizontalBleed = rightCheck - (innerWidth + marginRight);
+      if (rightCheck > innerWidth - marginRight) {
+        horizontalBleed = rightCheck - (innerWidth - marginRight);
       }
 
       const verticalCheck =
@@ -71,8 +71,8 @@
       const bottomCheck = vertical
         ? verticalCheck
         : parentY + parentH / 2 + childH / 2;
-      if (bottomCheck > innerHeight + marginBottom) {
-        verticalBleed = bottomCheck - innerHeight + marginBottom;
+      if (bottomCheck > innerHeight - marginBottom) {
+        verticalBleed = bottomCheck - (innerHeight - marginBottom);
       }
 
       const verticalOffset = `calc(${vertical ? 100 : 50}% + ${
@@ -116,10 +116,10 @@
 <style>
   .tooltip {
     position: absolute;
-    transition: opacity 0.15s ease;
     font-size: 14px;
     line-height: 16px;
     font-family: "Gill Sans", sans-serif;
+    transition: opacity 0.15s ease;
   }
   .inner {
     position: relative;
