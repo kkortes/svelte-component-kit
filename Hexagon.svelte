@@ -2,7 +2,7 @@
   export let color = "lightgray";
   export let width = 100;
 
-  const height = width * 0.576923076923077;
+  $: height = width * 0.576923076923077;
   const defaultColor = "rgba(0, 0, 0, 0.25)";
 
   const hexagonStyle = (width, height) => `
