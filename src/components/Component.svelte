@@ -19,7 +19,7 @@
   </div>
 {/if}
 
-{#if $store.activePage !== "home"}
+{#if $store.activePage !== "home" && false}
   <div class="wrap" bind:this={$store.refs["50 / 50"]}>
     <Crow fly>
       <div class="component">
@@ -32,7 +32,7 @@
   </div>
 {/if}
 
-{#if $store.activePage !== "home"}
+{#if $store.activePage !== "home" && false}
   <div class="wrap" bind:this={$store.refs["33 / 33 / 33"]}>
     <Crow fly>
       <div class="component">
@@ -48,7 +48,7 @@
   </div>
 {/if}
 
-{#if $store.activePage !== "home"}
+{#if $store.activePage !== "home" && false}
   <div class="wrap" bind:this={$store.refs["25 / 25 / 25 / 25"]}>
     <Crow fly>
       <div class="component">
@@ -86,14 +86,14 @@
     background-image: url(/assets/grid.png);
   }
   .wrap {
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     width: 100%;
     display: flex;
   }
   .content {
     margin: 0 auto;
     max-width: 800px;
-    padding: 20px;
+    /* padding: 20px; */
   }
   .component.information :global(.single) {
     display: none;

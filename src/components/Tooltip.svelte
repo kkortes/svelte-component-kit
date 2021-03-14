@@ -8,7 +8,6 @@
 
   const MODES = ["up", "right", "down", "left"];
 
-  let activeMode = "up";
   let parent;
   let randomDotStyles;
   let randomDotRef;
@@ -18,7 +17,8 @@
       name: "direction",
       optional: true,
       defaultValue: "up",
-      type: "up right down or left",
+      type: "string",
+      choices: ["up", "right", "down", "left"],
     },
     {
       name: "parent",
@@ -37,13 +37,22 @@
       optional: true,
       defaultValue: "0 0 0 0",
       type: "string",
+      choices: ["0 0 0 50", "50 50 50 50"],
     },
   ];
 
-  const toggleMode = () => {
-    const index = MODES.indexOf(activeMode);
-    activeMode = MODES[index + 1] ? MODES[index + 1] : MODES[0];
-  };
+  let demoProps = [
+    ...props.map((prop) => {
+      if (prop.name === "margin") {
+        return {
+          ...prop,
+          defaultValue: "0 0 0 50",
+        };
+      }
+
+      return prop;
+    }),
+  ];
 
   const mousemove = ({ clientX, clientY, shiftKey }) => {
     parent = randomDotRef;
@@ -52,11 +61,12 @@
     randomDotStyles = generateStyles({
       left: `${clientX}px`,
       top: `${clientY}px`,
+      position: "fixed",
     });
   };
 
   const changeProp = (propName, value) =>
-    (props = props.map((prop) =>
+    (demoProps = demoProps.map((prop) =>
       prop.name === propName ? { ...prop, defaultValue: value } : prop
     ));
 </script>
@@ -91,30 +101,26 @@
   <Code>
     {`<Tooltip>Lorem ipsum dolor sit amet.</Tooltip>`}
   </Code>
-
+</div>
+<div class="single">
+  <InteractiveTable props={demoProps} {changeProp} />
   <div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
     <span>Hover<br />me!</span>
-    <Tooltip {parent} direction={activeMode} margin="50px 0 0 50px">
+    <Tooltip
+      {...demoProps.reduce(
+        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+        {}
+      )}
+      {parent}
+    >
       This tooltip contains a bunch of information and no matter where it is on
       the screen it will not clip outside the viewport!<br /><br />
-      HOLD SHIFT to<br />move around.<br /><br />
-      LEFT CLICK to<br />change direction.
+      HOLD SHIFT to<br />move around.
     </Tooltip>
   </div>
 </div>
-<div class="single">
-  <div class="box">
-    <Tooltip
-      {...props.reduce(
-        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-        {}
-      )}>Lorem ipsum dolor sit amet.</Tooltip
-    >
-  </div>
-  <InteractiveTable {props} {changeProp} />
-</div>
 
-<svelte:window on:mousemove={mousemove} on:click={toggleMode} />
+<svelte:window on:mousemove={mousemove} />
 
 <style>
   .box {
@@ -129,12 +135,11 @@
     transform: translate(-50%, -50%);
   }
   .floaty {
+    position: absolute;
     width: 80px;
     height: 80px;
-    position: fixed;
-    left: 100px;
-    top: 200px;
-    z-index: 30;
+    left: 50%;
+    top: 50%;
   }
   span {
     pointer-events: none;

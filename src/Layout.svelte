@@ -31,8 +31,7 @@
   </div>
 </Crow>
 
-<TopBar />
-
+<!-- <TopBar /> -->
 <style>
   .minimize-panel {
     position: absolute;

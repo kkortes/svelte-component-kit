@@ -11,7 +11,7 @@
       <th />
     </tr>
   </thead>
-  {#each props as { name, defaultValue, type }}
+  {#each props as { name, defaultValue, type, choices }}
     <tbody>
       <tr>
         <td>{name}</td>
@@ -46,7 +46,16 @@
               on:input={(e) => changeProp(name, e.target.value)}
             />
           {:else if type === "[DOM reference]"}
-            n/a
+            [DOM reference]
+          {:else if choices}
+            <select
+              on:change={(e) => changeProp(name, e.target.value)}
+              style="width: 50px;"
+            >
+              {#each choices as choice}
+                <option value={choice}>{choice}</option>
+              {/each}
+            </select>
           {:else}
             <input
               type="text"

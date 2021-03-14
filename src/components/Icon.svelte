@@ -13,6 +13,7 @@
       optional: false,
       defaultValue: "",
       type: "string",
+      choices: Icons.icons.map(({ properties: { name } }) => name),
     },
     {
       name: "size",
