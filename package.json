@@ -1,11 +1,15 @@
 {
   "name": "svelte-component-kit",
   "version": "1.0.0",
-  "description": "",
+  "description": "Clean and easy-to-use components for elements and layouts that are commonly used",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "svelte",
+    "component"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kkortes/svelte-component-kit.git"
@@ -15,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/kkortes/svelte-component-kit/issues"
   },
-  "homepage": "https://github.com/kkortes/svelte-component-kit#readme",
+  "homepage": "https://svelte-component-kit-presentation.korte.kim",
   "dependencies": {
     "prism-svelte": "^0.4.7",
     "prismjs": "^1.23.0"
