@@ -1,5 +1,4 @@
 <script>
-  import "./icomoon/style.css";
   export let name = "";
   export let size = 16;
   export let color = "#000";

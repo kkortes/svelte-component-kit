@@ -1,7 +1,6 @@
 <script>
   import { highlight, languages } from "prismjs";
   import "prism-svelte";
-  import "./node_modules/prismjs/themes/prism-twilight.css";
 
   let html;
 </script>
