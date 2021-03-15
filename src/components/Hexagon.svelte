@@ -4,6 +4,7 @@
   import Hexagon from "svelte-component-kit/Hexagon.svelte";
   import InteractiveTable from "./InteractiveTable.svelte";
   import Table from "./Table.svelte";
+  import { formatProps } from "../js/helpers.js";
 
   let props = [
     {
@@ -38,14 +39,6 @@
   </div>
 
   <Table {props} />
-
-  <h2>Usage</h2>
-  <Code>
-    {`<Hexagon${props.reduce(
-      (a, { name, defaultValue }) => `${a} ${name}="${defaultValue}"`,
-      ""
-    )}>Centered text content</Hexagon>`}
-  </Code>
 </div>
 
 <div class="single">
@@ -55,5 +48,13 @@
       {}
     )}>Hex</Hexagon
   >
-  <InteractiveTable {props} {changeProp} />
+  <div class="demo">
+    <InteractiveTable {props} {changeProp} />
+    <Code>
+      {`<Hexagon
+${formatProps(props)}>
+  Hover me!
+</Hexagon>`}
+    </Code>
+  </div>
 </div>

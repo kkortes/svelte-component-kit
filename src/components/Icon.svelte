@@ -6,6 +6,7 @@
   import Tooltip from "svelte-component-kit/Tooltip.svelte";
   import InteractiveTable from "./InteractiveTable.svelte";
   import Table from "./Table.svelte";
+  import { formatProps } from "../js/helpers";
 
   let props = [
     {
@@ -34,7 +35,7 @@
       if (prop.name === "name") {
         return {
           ...prop,
-          defaultValue: "logo",
+          defaultValue: "crow",
         };
       }
 
@@ -72,17 +73,22 @@
   <a href="https://icomoon.io/" target="_blank">Icomoon</a>.<br /><br />
 
   <strong>Prerequisites</strong><br />
-  Copy the <span>icomoon</span> folder from <span>svelte-component-kit</span>
-  npm package (in your <span>node_modules</span>) and place it in
-  <span>public/assets</span>.<br /><br />
+  Copy the <span class="highlight">icomoon</span> folder from
+  <span class="highlight">svelte-component-kit</span>
+  npm package (in your <span class="highlight">node_modules</span>) and place it
+  in
+  <span class="highlight">public/assets</span>.<br /><br />
 
-  Add <span>{'import "../public/assets/icomoon/style.css";'}</span> to your main
-  component in order to include all styles & fonts needed to render the icons.
+  Add
+  <span class="highlight">{'import "../public/assets/icomoon/style.css";'}</span
+  >
+  to your main component in order to include all styles & fonts needed to render
+  the icons.
   <br /><br />
 
   <strong>Tip!</strong><br />
-  You can upload the <span>selection.json</span>-file in the
-  <span>icomoon</span>
+  You can upload the <span class="highlight">selection.json</span>-file in the
+  <span class="highlight">icomoon</span>
   folder to icomoon in order to change the icons to your liking.
 
   <div class="icons">
@@ -94,11 +100,6 @@
       {/each}
     </Crow>
   </div>
-
-  <h2>Usage</h2>
-  <Code>
-    {`<Icon name="logo" />`}
-  </Code>
 </div>
 
 <div class="single">
@@ -110,7 +111,13 @@
     )}
   />
 
-  <InteractiveTable props={demoProps} {changeProp} />
+  <div class="demo">
+    <InteractiveTable props={demoProps} {changeProp} />
+    <Code>
+      {`<Icon
+${formatProps(demoProps)}/>`}
+    </Code>
+  </div>
 </div>
 
 <style>
@@ -119,13 +126,5 @@
   }
   .icons {
     margin: 40px 0;
-  }
-  span {
-    font-family: "Arial", serif;
-    letter-spacing: 1px;
-    background: #fafafa;
-    padding: 0 4px;
-    margin: 0 -4px;
-    color: #b32c00;
   }
 </style>

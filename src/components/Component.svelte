@@ -101,4 +101,18 @@
   .component:not(.information) :global(.presentation) {
     display: none;
   }
+  :global(.demo) {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+  }
+  :global(span.highlight) {
+    font-family: "Arial", serif;
+    letter-spacing: 1px;
+    background: #fafafa;
+    padding: 0 4px;
+    margin: 0 -4px;
+    color: #b32c00;
+  }
 </style>

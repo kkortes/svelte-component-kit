@@ -1,4 +1,5 @@
 <script>
+  import { formatProps } from "../js/helpers";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Code from "svelte-component-kit/Code.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
@@ -81,16 +82,11 @@
 
   <Table {props} />
 
-  <span>{"<Crow />"}</span> is short for column-row. With it you can create
-  lists, grids and full page layouts.<br /><br />
+  <span class="highlight">{"<Crow />"}</span> is short for column-row. With it
+  you can create lists, grids and full page layouts.<br /><br />
   All the layout of this website is created using crow :)<br /><br />
   This component was "ported" to Svelte from my
   <a href="http://getcrow.eu" target="_blank">Crow framework</a>
-
-  <h2>Usage</h2>
-  <Code>
-    {`<Crow><div>This element gets centered!</div></Crow>`}
-  </Code>
 </div>
 
 <div class="single">
@@ -105,7 +101,19 @@
     <div>Three</div>
     <div>Four</div>
   </Crow>
-  <InteractiveTable {props} {changeProp} />
+  <div class="demo">
+    <InteractiveTable {props} {changeProp} />
+
+    <Code>
+      {`<Crow
+${formatProps(props)}>
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+  </Crow>`}
+    </Code>
+  </div>
 </div>
 
 <style>
@@ -113,13 +121,5 @@
     width: 100%;
     height: 100%;
     display: flex;
-  }
-  span {
-    font-family: "Arial", serif;
-    letter-spacing: 1px;
-    background: #fafafa;
-    padding: 0 4px;
-    margin: 0 -4px;
-    color: #b32c00;
   }
 </style>

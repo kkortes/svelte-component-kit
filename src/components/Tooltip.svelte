@@ -4,7 +4,7 @@
   import Code from "svelte-component-kit/Code.svelte";
   import InteractiveTable from "./InteractiveTable.svelte";
   import Table from "./Table.svelte";
-  import { generateStyles } from "../helpers.js";
+  import { generateStyles, formatProps } from "../js/helpers.js";
 
   let parent;
   let randomDotStyles;
@@ -85,7 +85,8 @@
   <strong>Responsive</strong><br />
   The parent of the tooltip can be any size and the tooltip renders correctly on
   any screen orientation!<br /><br />Remember to give the parent element
-  <span>position: relative;</span> and pass it down as the <span>parent</span>
+  <span class="highlight">position: relative;</span> and pass it down as the
+  <span class="highlight">parent</span>
   prop to get the most out of this component!<br /><br />
   <strong>Easy to use</strong><br />
   Simply import and use anywhere!<br /><br />
@@ -94,14 +95,17 @@
   <strong>Static version supported</strong><br />
   If you don't want the tooltip to be reactive to the viewport, simply omit the parent
   prop and it will work as a normal tooltip.
-
-  <h2>Usage</h2>
-  <Code>
-    {`<Tooltip>Lorem ipsum dolor sit amet.</Tooltip>`}
-  </Code>
 </div>
 <div class="single">
-  <InteractiveTable props={demoProps} {changeProp} />
+  <div class="demo">
+    <InteractiveTable props={demoProps} {changeProp} />
+    <Code>
+      {`<Tooltip
+${formatProps(demoProps)}>
+  Hover me!
+</Tooltip>`}
+    </Code>
+  </div>
   <div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
     Hover<br />me!
     <Tooltip
@@ -147,13 +151,5 @@
   .box:hover :global(.tooltip) {
     opacity: 0.9;
     pointer-events: auto;
-  }
-  span {
-    font-family: "Arial", serif;
-    letter-spacing: 1px;
-    background: #fafafa;
-    padding: 0 4px;
-    margin: 0 -4px;
-    color: #b32c00;
   }
 </style>

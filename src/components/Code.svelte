@@ -18,14 +18,11 @@
 
   <strong>Prerequisites</strong><br />
   Add
-  <span>{'import "../node_modules/prismjs/themes/prism-twilight.css";'}</span>
+  <span class="highlight"
+    >{'import "../node_modules/prismjs/themes/prism-twilight.css";'}</span
+  >
   to your main component in order to include all styles needed to render this code
   block.
-
-  <h2>Usage</h2>
-  <Code>
-    {`<Code> // code goes here </Code>`}
-  </Code>
 </div>
 
 <div class="single">
@@ -54,14 +51,3 @@
 </div>`}</Code
   >
 </div>
-
-<style>
-  span {
-    font-family: "Arial", serif;
-    letter-spacing: 1px;
-    background: #fafafa;
-    padding: 0 4px;
-    margin: 0 -4px;
-    color: #b32c00;
-  }
-</style>
