@@ -72,10 +72,13 @@
   <a href="https://icomoon.io/" target="_blank">Icomoon</a>.<br /><br />
 
   <strong>Prerequisites</strong><br />
-  Grab the <span>icomoon</span> folder from <span>svelte-component-kit</span>
-  npm package (in your <span>node_modules</span>) and place it into your
-  <span>public/assets</span>
-  folder.<br /><br />
+  Copy the <span>icomoon</span> folder from <span>svelte-component-kit</span>
+  npm package (in your <span>node_modules</span>) and place it in
+  <span>public/assets</span>.<br /><br />
+
+  Add <span>{'import "../public/assets/icomoon/style.css";'}</span> to your main
+  component in order to include all styles & fonts needed to render the icons.
+  <br /><br />
 
   <strong>Tip!</strong><br />
   You can upload the <span>selection.json</span>-file in the

@@ -8,6 +8,8 @@
   import Icon from "./components/Icon.svelte";
   import Home from "./components/Home.svelte";
   import Code from "./components/Code.svelte";
+  import "../public/assets/icomoon/style.css";
+  import "../node_modules/prismjs/themes/prism-twilight.css";
 </script>
 
 <Layout>
