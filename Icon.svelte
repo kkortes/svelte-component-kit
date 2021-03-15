@@ -1,10 +1,14 @@
-<script>  
-  export let name = '';
+<script>
+  import "./icomoon/style.css";
+  export let name = "";
   export let size = 16;
-  export let color = '#000';
+  export let color = "#000";
 </script>
 
-<span class={`icon icon-${name}`} style={`font-size: ${size}px; color: ${color};`}>
+<span
+  class={`icon icon-${name}`}
+  style={`font-size: ${size}px; color: ${color};`}
+>
   <slot />
 </span>
 
