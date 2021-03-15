@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/kkortes/svelte-component-kit#readme",
   "dependencies": {
-    "prism-svelte": "^0.4.7"
-  },
-  "peerDependencies": {
+    "prism-svelte": "^0.4.7",
     "prismjs": "^1.23.0"
   }
 }
