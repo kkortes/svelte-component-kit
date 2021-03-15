@@ -48,6 +48,13 @@
         };
       }
 
+      if (prop.name === "parent") {
+        return {
+          ...prop,
+          defaultValue: "[DOM reference]",
+        };
+      }
+
       return prop;
     }),
   ];
