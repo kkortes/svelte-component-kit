@@ -72,8 +72,8 @@
 <style>
   table {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: 8px;
     font-size: 12px;
     border-collapse: collapse;
     overflow: hidden;

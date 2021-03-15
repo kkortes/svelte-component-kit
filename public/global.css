@@ -5,6 +5,16 @@ body {
   height: 100%;
 }
 
+html {
+  font-size: 6.25%;
+}
+
+@media screen and (max-width: 760px) {
+  html {
+    font-size: 5%;
+  }
+}
+
 body {
   color: #333;
   margin: 0;
@@ -14,8 +24,8 @@ body {
   background: linear-gradient(to bottom, #ece9e3, #fafafa);
   height: 100%;
   display: flex;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 16rem;
+  line-height: 22rem;
   overflow: hidden;
 }
 

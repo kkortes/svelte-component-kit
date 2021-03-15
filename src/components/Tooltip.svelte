@@ -6,8 +6,6 @@
   import Table from "./Table.svelte";
   import { generateStyles } from "../helpers.js";
 
-  const MODES = ["up", "right", "down", "left"];
-
   let parent;
   let randomDotStyles;
   let randomDotRef;
@@ -87,15 +85,15 @@
   <strong>Responsive</strong><br />
   The parent of the tooltip can be any size and the tooltip renders correctly on
   any screen orientation!<br /><br />Remember to give the parent element
-  <Code>position: relative;</Code> and pass it down as the "parent"-prop to get the
-  most out of this component!<br /><br />
+  <span>position: relative;</span> and pass it down as the <span>parent</span>
+  prop to get the most out of this component!<br /><br />
   <strong>Easy to use</strong><br />
   Simply import and use anywhere!<br /><br />
   <strong>Flexible</strong><br />
   Your tooltip can contain anything, not just text.<br /><br />
   <strong>Static version supported</strong><br />
-  If you don't want the tooltip to be reactive to the viewport, simply omit the "parent"-attribute
-  and it will work as a normal tooltip.
+  If you don't want the tooltip to be reactive to the viewport, simply omit the parent
+  prop and it will work as a normal tooltip.
 
   <h2>Usage</h2>
   <Code>
@@ -105,7 +103,7 @@
 <div class="single">
   <InteractiveTable props={demoProps} {changeProp} />
   <div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
-    <span>Hover<br />me!</span>
+    Hover<br />me!
     <Tooltip
       {...demoProps.reduce(
         (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
@@ -124,7 +122,7 @@
 
 <style>
   .box {
-    background: gray;
+    background: pink;
     width: 40px;
     height: 40px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
@@ -141,10 +139,6 @@
     left: 50%;
     top: 50%;
   }
-  span {
-    pointer-events: none;
-    color: #fff;
-  }
   :global(.tooltip) {
     opacity: 0;
     pointer-events: none;
@@ -153,5 +147,13 @@
   .box:hover :global(.tooltip) {
     opacity: 0.9;
     pointer-events: auto;
+  }
+  span {
+    font-family: "Arial", serif;
+    letter-spacing: 1px;
+    background: #fafafa;
+    padding: 0 4px;
+    margin: 0 -4px;
+    color: #b32c00;
   }
 </style>

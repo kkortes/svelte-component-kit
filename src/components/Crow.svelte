@@ -81,8 +81,8 @@
 
   <Table {props} />
 
-  <Code>{"<Crow />"}</Code> is short for column-row. With it you can create lists,
-  grids and full page layouts.<br /><br />
+  <span>{"<Crow />"}</span> is short for column-row. With it you can create
+  lists, grids and full page layouts.<br /><br />
   All the layout of this website is created using crow :)<br /><br />
   This component was "ported" to Svelte from my
   <a href="http://getcrow.eu" target="_blank">Crow framework</a>
@@ -113,5 +113,13 @@
     width: 100%;
     height: 100%;
     display: flex;
+  }
+  span {
+    font-family: "Arial", serif;
+    letter-spacing: 1px;
+    background: #fafafa;
+    padding: 0 4px;
+    margin: 0 -4px;
+    color: #b32c00;
   }
 </style>

@@ -1,5 +1,5 @@
 <script>
-  import Icons from "./../../public/icomoon/selection.json";
+  import Icons from "./../../public/assets/icomoon/selection.json";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Code from "svelte-component-kit/Code.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
@@ -72,19 +72,15 @@
   <a href="https://icomoon.io/" target="_blank">Icomoon</a>.<br /><br />
 
   <strong>Prerequisites</strong><br />
-  Grab the <Code>icomoon</Code> folder from <Code>svelte-component-kit</Code> npm
-  package (in your node_modules) and place it directly into you <Code
-    >public</Code
-  > folder.<br /><br />
-  You also need to add <Code
-    >{"<link rel='stylesheet' href='/icomoon/style.css'>"}</Code
-  > to your <Code>{"<head>"}-tag</Code>.<br /><br />
-  This component asumes you did these things in order to render properly.<br
-  /><br />
+  Grab the <span>icomoon</span> folder from <span>svelte-component-kit</span>
+  npm package (in your <span>node_modules</span>) and place it into your
+  <span>public/assets</span>
+  folder.<br /><br />
 
   <strong>Tip!</strong><br />
-  You can upload the <Code>selection.json</Code>-file in the <Code>icomoon</Code
-  > folder to icomoon in order to change the icons to your liking.
+  You can upload the <span>selection.json</span>-file in the
+  <span>icomoon</span>
+  folder to icomoon in order to change the icons to your liking.
 
   <div class="icons">
     <Crow gutter={8}>
@@ -120,5 +116,13 @@
   }
   .icons {
     margin: 40px 0;
+  }
+  span {
+    font-family: "Arial", serif;
+    letter-spacing: 1px;
+    background: #fafafa;
+    padding: 0 4px;
+    margin: 0 -4px;
+    color: #b32c00;
   }
 </style>

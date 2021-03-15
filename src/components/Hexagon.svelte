@@ -41,7 +41,10 @@
 
   <h2>Usage</h2>
   <Code>
-    {`<Hexagon>Centered text content</Hexagon>`}
+    {`<Hexagon${props.reduce(
+      (a, { name, defaultValue }) => `${a} ${name}="${defaultValue}"`,
+      ""
+    )}>Centered text content</Hexagon>`}
   </Code>
 </div>
 

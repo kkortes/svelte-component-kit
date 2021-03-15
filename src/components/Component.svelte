@@ -86,14 +86,14 @@
     background-image: url(/assets/grid.png);
   }
   .wrap {
-    height: calc(100vh);
+    min-height: calc(100vh);
     width: 100%;
     display: flex;
   }
   .content {
     margin: 0 auto;
     max-width: 800px;
-    /* padding: 20px; */
+    padding: 0 20px;
   }
   .component.information :global(.single) {
     display: none;

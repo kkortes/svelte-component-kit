@@ -14,16 +14,16 @@
   {#each props as { name, optional, defaultValue, type }}
     <tbody>
       <tr>
-        <td>{name}</td>
-        <td>
+        <td data-label="prop">{name}</td>
+        <td data-label="optional">
           {#if optional}
             <span class="yes">✓</span>
           {:else}
             <span class="no">✗</span>
           {/if}
         </td>
-        <td>{defaultValue}</td>
-        <td>{type}</td>
+        <td data-label="initial">{defaultValue}</td>
+        <td data-label="type">{type}</td>
       </tr>
     </tbody>
   {/each}
@@ -72,5 +72,46 @@
   }
   table span.no {
     color: darkred;
+  }
+
+  @media only screen and (max-width: 760px) {
+    thead,
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tbody {
+      border: 1px solid #40464c;
+      margin: 4px 0;
+    }
+
+    td {
+      /* make like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding: 4px;
+      padding-left: 50%;
+      text-align: left;
+    }
+
+    td:before {
+      content: attr(data-label);
+      display: inline-block;
+      line-height: 1.5;
+      margin-left: -100%;
+      width: 100%;
+      white-space: nowrap;
+    }
   }
 </style>
