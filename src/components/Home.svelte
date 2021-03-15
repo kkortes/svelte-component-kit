@@ -1,6 +1,5 @@
 <script>
   import Icon from "svelte-component-kit/Icon.svelte";
-  import Code from "svelte-component-kit/Code.svelte";
 </script>
 
 <div class="title">
