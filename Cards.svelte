@@ -1,6 +1,4 @@
 <script>
-  import Crow from "./Crow.svelte";
-
   export let spread = 0.25;
   export let distance = 150;
 
