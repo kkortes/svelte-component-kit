@@ -101,3 +101,14 @@ button:focus {
 *::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.demo pre.language-svelte {
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 14px;
+  margin: 0;
+}
+
+.demo pre.language-svelte .token {
+  z-index: 0;
+}

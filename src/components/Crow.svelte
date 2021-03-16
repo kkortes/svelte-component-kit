@@ -84,9 +84,12 @@
 
   <span class="highlight">{"<Crow />"}</span> is short for column-row. With it
   you can create lists, grids and full page layouts.<br /><br />
-  All the layout of this website is created using crow :)<br /><br />
-  This component was "ported" to Svelte from my
-  <a href="http://getcrow.eu" target="_blank">Crow framework</a>
+  This component was ported to Svelte from my
+  <a href="http://getcrow.eu" target="_blank">Crow framework</a>.<br /><br />
+  If you want to implicitly set the flex of children of a
+  <span class="highlight">{"<Crow />"}</span> element you should set their
+  <span class="highlight">style</span>
+  using <span class="highlight">--flex: 1;</span> variable.
 </div>
 
 <div class="single">

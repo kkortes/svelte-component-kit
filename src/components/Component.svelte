@@ -67,10 +67,6 @@
   </div>
 {/if}
 
-{#if $store.activePage !== "home"}
-  <div style="height: 50px; width: 100%;" />
-{/if}
-
 <style>
   :global(.title) {
     display: flex;
@@ -82,11 +78,14 @@
     justify-content: center;
     flex: 1;
   }
+  .component.information {
+    padding: 50px 0;
+  }
   .component:not(.information) {
     background-image: url(/assets/grid.png);
   }
   .wrap {
-    min-height: calc(100vh);
+    min-height: 50vh;
     width: 100%;
     display: flex;
   }

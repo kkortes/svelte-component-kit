@@ -62,7 +62,6 @@
     max-width: 200px;
   }
   .main {
-    padding-top: 50px;
     overflow: hidden;
     overflow-y: scroll;
   }
