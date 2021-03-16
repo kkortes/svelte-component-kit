@@ -1,5 +1,6 @@
 <script>
   import Icon from "svelte-component-kit/Icon.svelte";
+  import Crow from "svelte-component-kit/Crow.svelte";
 </script>
 
 <div class="title">

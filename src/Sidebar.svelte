@@ -15,9 +15,11 @@
           on:click={() => clickPage(name)}
           class:active={$store.activePage === name}
         >
-          <Icon {name} size={name === "home" ? 30 : 20} color="#cbd0d4" /><span
-            class="name">{name}</span
-          ><span class="ending">.svelte</span>
+          <Icon
+            name={name === "home" ? "logo-svelte" : name}
+            size={name === "home" ? 30 : 20}
+            color="#cbd0d4"
+          /><span class="name">{name}</span><span class="ending">.svelte</span>
         </div>
       </div>
     {/each}

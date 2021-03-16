@@ -23,7 +23,7 @@
               value={defaultValue}
               style="padding: 0; width: 50px;"
               max="200"
-              on:input={(e) => changeProp(name, e.target.value)}
+              on:input={(e) => changeProp(name, parseInt(e.target.value))}
             />
           {:else if type === "boolean"}
             <input
@@ -47,6 +47,15 @@
             />
           {:else if type === "[DOM reference]"}
             [DOM reference]
+          {:else if type === "float"}
+            <input
+              type="range"
+              value={defaultValue}
+              style="padding: 0; width: 50px;"
+              max="1"
+              step="0.01"
+              on:input={(e) => changeProp(name, parseFloat(e.target.value))}
+            />
           {:else if choices}
             <select
               on:change={(e) => changeProp(name, e.target.value)}

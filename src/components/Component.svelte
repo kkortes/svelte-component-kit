@@ -105,6 +105,7 @@
     top: 8px;
     right: 8px;
     display: flex;
+    flex-direction: column;
   }
   :global(span.highlight) {
     font-family: "Arial", serif;

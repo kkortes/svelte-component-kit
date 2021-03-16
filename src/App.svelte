@@ -8,6 +8,7 @@
   import Icon from "./components/Icon.svelte";
   import Home from "./components/Home.svelte";
   import Code from "./components/Code.svelte";
+  import Cards from "./components/Cards.svelte";
   import "../public/assets/icomoon/style.css";
   import "../node_modules/prismjs/themes/prism-twilight.css";
 </script>
@@ -15,7 +16,7 @@
 <Layout>
   <Component>
     <svelte:component
-      this={[Home, Icon, Code, Crow, Hexagon, Tooltip][
+      this={[Home, Icon, Code, Crow, Hexagon, Tooltip, Cards][
         $store.pages.indexOf($store.activePage)
       ]}
     />

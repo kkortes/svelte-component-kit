@@ -16,6 +16,7 @@ export default {
     "code",
     "crow",
     "hexagon",
-    "tooltip"
+    "tooltip",
+    "cards"
 	]
 };

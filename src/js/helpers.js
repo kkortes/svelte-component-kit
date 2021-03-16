@@ -1,4 +1,4 @@
-const wrapBasedOnType = (value) => typeof value === 'boolean' ? `{${value}}` : `"${value}"`
+const wrapBasedOnType = (value) => typeof value !== 'string' ? `{${value}}` : `"${value}"`
 
 const generateStyles = (styles) => Object.entries(styles)
 			.reduce((a, [property, value]) => [...a, `${property}: ${value};`], [])
@@ -11,5 +11,5 @@ const formatProps = (props) => props.reduce(
 
 export {
 	generateStyles,
-  formatProps
+  formatProps,
 }
