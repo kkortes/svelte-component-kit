@@ -1,7 +1,6 @@
 <script>
   import { store, actions } from "./store";
   import Sidebar from "./Sidebar.svelte";
-  import TopBar from "./TopBar.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
 
@@ -31,7 +30,6 @@
   </div>
 </Crow>
 
-<!-- <TopBar /> -->
 <style>
   .minimize-panel {
     position: absolute;
