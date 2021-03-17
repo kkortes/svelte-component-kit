@@ -2,22 +2,46 @@
   export let spread = 0.25;
   export let distance = 150;
 
-  let cards = ["Card", "Card", "Card", "Card", "Card", "Card", "Card", "Card"];
+  export let cards = [
+    "Card",
+    "Card",
+    "Card",
+    "Card",
+    "Card",
+    "Card",
+    "Card",
+    "Card",
+  ];
+
+  export let flipped = false;
 
   $: rotation = (360 / cards.length) * spread;
 
   $: rotateCard = (index) =>
     `transform: translate(-50%, -50%) rotate(${
       index * rotation
-    }deg) translateY(-${distance}px)`;
+    }deg) translateY(-${distance}px);`;
 </script>
 
 <div
   class="cards"
-  style={`transform: rotate(-${(rotation * (cards.length - 1)) / 2}deg)`}
+  style={`transform: translateY(${distance}px) rotate(-${
+    (rotation * (cards.length - 1)) / 2
+  }deg);`}
 >
   {#each cards as card, i}
-    <div class="card" style={rotateCard(i)}>{card} {i + 1}</div>
+    <div
+      class="card"
+      class:flipped
+      style={`${rotateCard(i)} ${
+        i !== 0 && spread === 0 ? "display: none;" : ""
+      }`}
+    >
+      <div class="faces">
+        <div class="back">Card Back</div>
+        <div class="front">Card Front</div>
+      </div>
+    </div>
   {/each}
 </div>
 
@@ -28,15 +52,42 @@
   .card {
     width: 100px;
     height: 150px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    background: #fafafa;
     transform-origin: center;
     position: absolute;
     top: 50%;
     left: 50%;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
 
+  .faces {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s ease;
+  }
+
+  .card.flipped .faces {
+    transform: rotateY(180deg);
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  .back {
+    background: gray;
+  }
+  .front {
+    background: #fafafa;
+    transform: rotateY(180deg);
   }
 </style>
