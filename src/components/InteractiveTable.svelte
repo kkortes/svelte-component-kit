@@ -22,7 +22,7 @@
               type="range"
               value={defaultValue}
               style="padding: 0; width: 50px;"
-              max="200"
+              max="300"
               on:input={(e) => changeProp(name, parseInt(e.target.value))}
             />
           {:else if type === "boolean"}

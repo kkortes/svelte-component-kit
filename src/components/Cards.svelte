@@ -19,6 +19,12 @@
       defaultValue: 150,
       type: "integer",
     },
+    {
+      name: "flipped",
+      optional: true,
+      defaultValue: false,
+      type: "boolean",
+    },
   ];
 
   const changeProp = (propName, value) =>
@@ -37,8 +43,17 @@
       <Icon name="github" size={30} />
     </a>
   </div>
-
   <Table {props} />
+
+  This component renders a "card hand" which can be customized in various ways.
+  The three properties that is being exposed are the most basal ones to make it
+  feel like a real hand of cards.<br /><br />
+  The card hand is reactive to how many cards are rendered.<br /><br />
+  Due to limitations of svelte <span class="highlight">{"<slot />"}</span> I
+  highly suggest you copy the code over from the component file itself and add
+  business logics directly into your own file.<br /><br />
+  In order to prevent a stack of shadows, the card hand hides all cards but one whenever
+  <span class="highlight">spread</span> is equal to 0.
 </div>
 
 <div class="single">
