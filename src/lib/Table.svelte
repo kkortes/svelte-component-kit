@@ -40,16 +40,18 @@
   }
   th,
   td {
-    padding: 8px;
+    padding: 8px 16px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #333;
   }
   th {
     text-align: left;
     color: #fff;
+    font-family: "Overwatch", sans-serif;
+    font-weight: 300;
   }
   thead th {
-    background-color: #40464c;
+    background-color: #8f8f8f;
   }
   tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -72,46 +74,5 @@
   }
   table span.no {
     color: darkred;
-  }
-
-  @media only screen and (max-width: 760px) {
-    thead,
-    tbody,
-    tr,
-    td {
-      display: block;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-
-    thead tr {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-
-    tbody {
-      border: 1px solid #40464c;
-      margin: 4px 0;
-    }
-
-    td {
-      /* make like a "row" */
-      border: none;
-      border-bottom: 1px solid #eee;
-      position: relative;
-      padding: 4px;
-      padding-left: 50%;
-      text-align: left;
-    }
-
-    td:before {
-      content: attr(data-label);
-      display: inline-block;
-      line-height: 1.5;
-      margin-left: -100%;
-      width: 100%;
-      white-space: nowrap;
-    }
   }
 </style>

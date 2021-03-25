@@ -24,9 +24,4 @@
     justify-content: space-between;
     align-items: center;
   }
-  .content {
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 0 20px;
-  }
 </style>

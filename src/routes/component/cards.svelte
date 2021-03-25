@@ -5,6 +5,7 @@
   import Code from "svelte-component-kit/Code.svelte";
   import InteractiveTable from "$lib/InteractiveTable.svelte";
   import { formatProps } from "$lib/js/helpers";
+  import Crow from "svelte-component-kit/Crow.svelte";
 
   let props = [
     {
@@ -27,13 +28,15 @@
     },
   ];
 
+  let demoProps = props;
+
   const changeProp = (propName, value) =>
-    (props = props.map((prop) =>
+    (demoProps = demoProps.map((prop) =>
       prop.name === propName ? { ...prop, defaultValue: value } : prop
     ));
 </script>
 
-<div class="presentation">
+<div class="content">
   <div class="title">
     <h1>Cards</h1>
     <a
@@ -43,31 +46,39 @@
       <Icon name="github" size={30} />
     </a>
   </div>
+
   <Table {props} />
 
-  This component renders a "card hand" which can be customized in various ways.
-  The three properties that is being exposed are the most basal ones to make it
-  feel like a real hand of cards.<br /><br />
-  The card hand is reactive to how many cards are rendered.<br /><br />
+  This component renders a "card hand" which can be customized in various ways
+  and it's reactive to how many cards are being rendered.<br /><br />
   Due to limitations of svelte <span class="highlight">{"<slot />"}</span> I
   highly suggest you copy the code over from the component file itself and add
-  business logics directly into your own file.<br /><br />
+  your own business logic directly into the file.<br /><br />
   In order to prevent a stack of shadows, the card hand hides all cards but one whenever
   <span class="highlight">spread</span> is equal to 0.
 </div>
 
-<div class="single">
-  <div class="demo">
-    <InteractiveTable {props} {changeProp} />
-    <Code>
-      {`<Cards
-${formatProps(props)} />`}
-    </Code>
-  </div>
-  <Cards
-    {...props.reduce(
-      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-      {}
-    )}
-  />
+<div class="component">
+  <Crow>
+    <Cards
+      {...demoProps.reduce(
+        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+        {}
+      )}
+    />
+  </Crow>
+</div>
+
+<div class="panel">
+  <Crow gutter={20}>
+    <div>
+      <InteractiveTable {demoProps} {changeProp} />
+    </div>
+    <div>
+      <Code>
+        {`<Cards
+${formatProps(demoProps)} />`}
+      </Code>
+    </div>
+  </Crow>
 </div>

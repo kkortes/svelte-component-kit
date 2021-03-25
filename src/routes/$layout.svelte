@@ -1,13 +1,13 @@
 <script>
   import { store, actions } from "$lib/js/store";
-  import Sidebar from "$lib/Sidebar.svelte";
+  import Navigation from "$lib/Navigation.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
 
   const { toggleSidebarOpen } = actions;
 
   const toggleSidebar = ({ target }) => {
-    if (target.classList.contains("sidebar")) {
+    if (target.classList.contains("navigation")) {
       toggleSidebarOpen();
     }
   };
@@ -20,7 +20,7 @@
     on:click={toggleSidebar}
     class:open={$store.sidebarOpen}
   >
-    <Sidebar />
+    <Navigation />
     <div class="minimize-panel">
       <Icon name="right" color="#fff" size={24} />
     </div>
@@ -56,21 +56,31 @@
     overflow: hidden;
     transition: max-width 0.25s ease, min-width 0.25s ease;
     z-index: 1;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
   .sidebar.open {
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 185px;
+    max-width: 185px;
   }
   .main {
     overflow: hidden;
     overflow-y: scroll;
   }
-  :global(.demo) {
+  :global(.title) {
+    position: relative;
+  }
+  :global(.title a) {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    display: flex;
-    flex-direction: column;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  :global(.content) {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    padding: 75px 20px;
+    min-height: calc(50vh - 150px);
   }
   :global(span.highlight) {
     font-family: "Arial", serif;

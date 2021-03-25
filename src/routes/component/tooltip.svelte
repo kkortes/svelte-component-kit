@@ -5,6 +5,7 @@
   import InteractiveTable from "$lib/InteractiveTable.svelte";
   import Table from "$lib/Table.svelte";
   import { generateStyles, formatProps } from "$lib/js/helpers.js";
+  import Crow from "svelte-component-kit/Crow.svelte";
 
   let parent;
   let randomDotStyles;
@@ -76,9 +77,9 @@
     ));
 </script>
 
-<div class="presentation">
+<div class="content">
   <div class="title">
-    <h1>Tooltip.svelte</h1>
+    <h1>Tooltip</h1>
     <a
       href="https://github.com/kkortes/svelte-component-kit/blob/master/Tooltip.svelte"
       target="_blank"
@@ -103,16 +104,8 @@
   If you don't want the tooltip to be reactive to the viewport, simply omit the parent
   prop and it will work as a normal tooltip.
 </div>
-<div class="single">
-  <div class="demo">
-    <InteractiveTable props={demoProps} {changeProp} />
-    <Code>
-      {`<Tooltip
-${formatProps(demoProps)}>
-  Hover me!
-</Tooltip>`}
-    </Code>
-  </div>
+
+<div class="component">
   <div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
     Hover<br />me!
     <Tooltip
@@ -127,6 +120,22 @@ ${formatProps(demoProps)}>
       HOLD SHIFT to<br />move around.
     </Tooltip>
   </div>
+</div>
+
+<div class="panel">
+  <Crow gutter={20}>
+    <div>
+      <InteractiveTable {demoProps} {changeProp} />
+    </div>
+    <div>
+      <Code>
+        {`<Tooltip
+${formatProps(demoProps)}>
+  Hover me!
+</Tooltip>`}
+      </Code>
+    </div>
+  </Crow>
 </div>
 
 <svelte:window on:mousemove={mousemove} />

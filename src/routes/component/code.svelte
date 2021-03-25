@@ -1,11 +1,12 @@
 <script>
   import Code from "svelte-component-kit/Code.svelte";
+  import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
 </script>
 
-<div class="presentation">
+<div class="content">
   <div class="title">
-    <h1>Code.svelte</h1>
+    <h1>Code</h1>
     <a
       href="https://github.com/kkortes/svelte-component-kit/blob/master/Code.svelte"
       target="_blank"
@@ -22,18 +23,18 @@
   and include it in your app.
 </div>
 
-<div class="single">
-  <Code
-    >{`<div class="presentation">
-  <div class="title">
-    <h1>Code.svelte</h1>
-    <a
-      href="https://github.com/kkortes/svelte-component-kit/blob/master/Code.svelte"
-      target="_blank"
-    >
-      <Icon name="github" size={30} />
-    </a>
-  </div>
+<div class="component">
+  <Crow>
+    <div>
+      <Code
+        >{`<div class="title">
+  <h1>Code.svelte</h1>
+  <a
+    href="https://github.com/kkortes/svelte-component-kit/blob/master/Code.svelte"
+    target="_blank"
+  >
+    <Icon name="github" size={30} />
+  </a>
 
   This component has no props.
 
@@ -46,5 +47,7 @@
 <div class="single">
   <Code>Highlighted</Code>
 </div>`}</Code
-  >
+      >
+    </div>
+  </Crow>
 </div>

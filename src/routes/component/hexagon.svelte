@@ -5,6 +5,7 @@
   import InteractiveTable from "$lib/InteractiveTable.svelte";
   import Table from "$lib/Table.svelte";
   import { formatProps } from "$lib/js/helpers.js";
+  import Crow from "svelte-component-kit/Crow.svelte";
 
   let props = [
     {
@@ -21,15 +22,27 @@
     },
   ];
 
+  let demoProps = [
+    ...props.map((prop) => {
+      if (prop.name === "color") {
+        return {
+          ...prop,
+          defaultValue: "#40464c",
+        };
+      }
+      return prop;
+    }),
+  ];
+
   const changeProp = (propName, value) =>
-    (props = props.map((prop) =>
+    (demoProps = demoProps.map((prop) =>
       prop.name === propName ? { ...prop, defaultValue: value } : prop
     ));
 </script>
 
-<div class="presentation">
+<div class="content">
   <div class="title">
-    <h1>Hexagon.svelte</h1>
+    <h1>Hexagon</h1>
     <a
       href="https://github.com/kkortes/svelte-component-kit/blob/master/Hexagon.svelte"
       target="_blank"
@@ -41,20 +54,31 @@
   <Table {props} />
 </div>
 
-<div class="single">
-  <Hexagon
-    {...props.reduce(
-      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-      {}
-    )}>Hex</Hexagon
-  >
-  <div class="demo">
-    <InteractiveTable {props} {changeProp} />
-    <Code>
-      {`<Hexagon
-${formatProps(props)}>
-  Hover me!
+<div class="component">
+  <Crow>
+    <Hexagon
+      {...demoProps.reduce(
+        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+        {}
+      )}
+    >
+      <Icon name="logo-svelte" size={60} />
+    </Hexagon>
+  </Crow>
+</div>
+
+<div class="panel">
+  <Crow gutter={20}>
+    <div>
+      <InteractiveTable {demoProps} {changeProp} />
+    </div>
+    <div>
+      <Code>
+        {`<Hexagon
+${formatProps(demoProps)}>
+  <Icon name="logo-svelte" size={60} />
 </Hexagon>`}
-    </Code>
-  </div>
+      </Code>
+    </div>
+  </Crow>
 </div>

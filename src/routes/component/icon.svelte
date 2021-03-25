@@ -56,9 +56,9 @@
     ));
 </script>
 
-<div class="presentation">
+<div class="content">
   <div class="title">
-    <h1>Icon.svelte</h1>
+    <h1>Icon</h1>
     <a
       href="https://github.com/kkortes/svelte-component-kit/blob/master/Icon.svelte"
       target="_blank"
@@ -80,44 +80,36 @@
   and place it in your <span class="highlight">static</span> directory.<br /><br
   />
 
-  <br /><br />
-
   <strong>Tip!</strong><br />
   You can upload the <span class="highlight">selection.json</span>-file in the
   <span class="highlight">icomoon</span>
   folder to icomoon in order to change the icons to your liking.
-
-  <div class="icons">
-    <Crow gutter={8}>
-      {#each Icons.icons as icon}
-        <Icon name={icon.properties.name} size={36}>
-          <Tooltip>{icon.properties.name}</Tooltip>
-        </Icon>
-      {/each}
-    </Crow>
-  </div>
 </div>
 
-<div class="single">
-  <Icon
-    name="logo"
-    {...demoProps.reduce(
-      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-      {}
-    )}
-  />
+<div class="component">
+  <Crow>
+    <div>
+      <Icon
+        name="logo"
+        {...demoProps.reduce(
+          (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+          {}
+        )}
+      />
+    </div>
+  </Crow>
+</div>
 
-  <div class="demo">
-    <InteractiveTable props={demoProps} {changeProp} />
-    <Code>
-      {`<Icon
+<div class="panel">
+  <Crow gutter={20}>
+    <div>
+      <InteractiveTable {demoProps} {changeProp} />
+    </div>
+    <div>
+      <Code>
+        {`<Icon
 ${formatProps(demoProps)}/>`}
-    </Code>
-  </div>
+      </Code>
+    </div>
+  </Crow>
 </div>
-
-<style>
-  .icons {
-    margin: 40px 0;
-  }
-</style>

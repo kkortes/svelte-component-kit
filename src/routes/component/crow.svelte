@@ -63,15 +63,17 @@
     },
   ];
 
+  let demoProps = props;
+
   const changeProp = (propName, value) =>
-    (props = props.map((prop) =>
+    (demoProps = demoProps.map((prop) =>
       prop.name === propName ? { ...prop, defaultValue: value } : prop
     ));
 </script>
 
-<div class="presentation">
+<div class="content">
   <div class="title">
-    <h1>Crow.svelte</h1>
+    <h1>Crow</h1>
     <a
       href="https://github.com/kkortes/svelte-component-kit/blob/master/Crow.svelte"
       target="_blank"
@@ -92,37 +94,52 @@
   using <span class="highlight">--flex: 1;</span> variable.
 </div>
 
-<div class="single">
+<div class="component">
   <Crow
-    {...props.reduce(
+    {...demoProps.reduce(
       (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
       {}
     )}
   >
-    <div>One</div>
-    <div>Two</div>
-    <div>Three</div>
-    <div>Four</div>
+    <div>
+      <div class="inner" style="background: lightgreen;">Green</div>
+    </div>
+    <div>
+      <div class="inner" style="background: lightgray;">Red</div>
+    </div>
+    <div>
+      <div class="inner" style="background: pink;">Pink</div>
+    </div>
+    <div>
+      <div class="inner" style="background: lightblue;">Blue</div>
+    </div>
   </Crow>
-  <div class="demo">
-    <InteractiveTable {props} {changeProp} />
+</div>
 
-    <Code>
-      {`<Crow
-${formatProps(props)}>
-    <div>One</div>
-    <div>Two</div>
-    <div>Three</div>
-    <div>Four</div>
-  </Crow>`}
-    </Code>
-  </div>
+<div class="panel">
+  <Crow gutter={20}>
+    <div>
+      <InteractiveTable {demoProps} {changeProp} />
+    </div>
+    <div>
+      <Code>
+        {`<Crow
+${formatProps(demoProps)}>
+  <div>Green</div>
+  <div>Red</div>
+  <div>Pink</div>
+  <div>Blue</div>
+</Crow>`}
+      </Code>
+    </div>
+  </Crow>
 </div>
 
 <style>
-  .single {
-    width: 100%;
-    height: 100%;
-    display: flex;
+  .inner {
+    padding: 8px;
+  }
+  .component {
+    overflow: hidden;
   }
 </style>

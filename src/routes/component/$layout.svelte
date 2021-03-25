@@ -1,103 +1,21 @@
-<script>
-  import { store } from "$lib/js/store";
-  import Crow from "svelte-component-kit/Crow.svelte";
-</script>
-
-<div class="wrap content">
-  <div class="component information">
-    <slot />
-  </div>
-</div>
-
-{#if $store.activePage !== "home"}
-  <div class="wrap">
-    <Crow fly>
-      <div class="component">
-        <slot />
-      </div>
-    </Crow>
-  </div>
-{/if}
-
-{#if $store.activePage !== "home" && false}
-  <div class="wrap">
-    <Crow fly>
-      <div class="component">
-        <slot />
-      </div>
-      <div class="component">
-        <slot />
-      </div>
-    </Crow>
-  </div>
-{/if}
-
-{#if $store.activePage !== "home" && false}
-  <div class="wrap">
-    <Crow fly>
-      <div class="component">
-        <slot />
-      </div>
-      <div class="component">
-        <slot />
-      </div>
-      <div class="component">
-        <slot />
-      </div>
-    </Crow>
-  </div>
-{/if}
-
-{#if $store.activePage !== "home" && false}
-  <div class="wrap">
-    <Crow fly>
-      <div class="component">
-        <slot />
-      </div>
-      <div class="component">
-        <slot />
-      </div>
-      <div class="component">
-        <slot />
-      </div>
-      <div class="component">
-        <slot />
-      </div>
-    </Crow>
-  </div>
-{/if}
+<slot />
 
 <style>
-  :global(.title) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .component {
+  :global(.component) {
     position: relative;
-    justify-content: center;
-    flex: 1;
-  }
-  .component.information {
-    padding: 50px 0;
-  }
-  .component:not(.information) {
+    display: flex;
+    width: 100%;
+    min-height: 50vh;
     background-image: url(/grid.png);
   }
-  .wrap {
-    min-height: 50vh;
-    width: 100%;
+  :global(.panel) {
     display: flex;
+    width: 100%;
+    background-color: #40464c;
+    padding: 30px;
+    min-height: 25vh;
   }
-  .content {
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 0 20px;
-  }
-  .component.information :global(.single) {
-    display: none;
-  }
-  .component:not(.information) :global(.presentation) {
-    display: none;
+  :global(.panel pre) {
+    min-width: 200px;
   }
 </style>

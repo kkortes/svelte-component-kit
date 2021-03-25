@@ -37,6 +37,12 @@ h6,
 strong {
   color: #000;
   line-height: 36px;
+  font-family: "Overpass", sans-serif;
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 600;
 }
 
 a {
@@ -102,13 +108,53 @@ button:focus {
   background: transparent;
 }
 
-.demo pre {
+pre[class*="language-"] {
   border-radius: 3px !important;
-  padding: 8px !important;
+  padding: 12px !important;
   font-size: 14px !important;
   margin: 0 !important;
 }
 
-.demo pre .token {
+pre .token {
   z-index: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.75);
+  margin: 10px 0 30px 0;
+}
+th,
+td {
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #333;
+}
+th {
+  text-align: left;
+  color: #fff;
+  font-family: "Overwatch", sans-serif;
+  font-weight: 300;
+}
+thead th {
+  background-color: #8f8f8f;
+}
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
