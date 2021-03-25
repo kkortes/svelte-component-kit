@@ -3,14 +3,14 @@
   export let distance = 150;
 
   export let cards = [
-    "Card",
-    "Card",
-    "Card",
-    "Card",
-    "Card",
-    "Card",
-    "Card",
-    "Card",
+    "http://placekitten.com/101/150",
+    "http://placekitten.com/102/150",
+    "http://placekitten.com/103/150",
+    "http://placekitten.com/104/150",
+    "http://placekitten.com/105/150",
+    "http://placekitten.com/106/150",
+    "http://placekitten.com/107/150",
+    "http://placekitten.com/108/150",
   ];
 
   export let flipped = false;
@@ -34,12 +34,12 @@
       class="card"
       class:flipped
       style={`${rotateCard(i)} ${
-        i !== 0 && spread === 0 ? "display: none;" : ""
+        i !== cards.length - 1 && spread === 0 ? "display: none;" : ""
       }`}
     >
       <div class="faces">
-        <div class="back">Card Back</div>
-        <div class="front">Card Front</div>
+        <div class="back">Back</div>
+        <div class="front" style={`background-image: url(${card})`} />
       </div>
     </div>
   {/each}
@@ -56,9 +56,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    perspective: 500px;
   }
-
   .faces {
     position: relative;
     width: 100%;
@@ -67,11 +66,9 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     transition: transform 0.25s ease;
   }
-
   .card.flipped .faces {
     transform: rotateY(180deg);
   }
-
   .front,
   .back {
     position: absolute;
@@ -84,10 +81,11 @@
     backface-visibility: hidden;
   }
   .back {
-    background: gray;
+    background: #fafafa;
   }
   .front {
-    background: #fafafa;
+    background: #40464c;
+    color: #fff;
     transform: rotateY(180deg);
   }
 </style>
