@@ -1,8 +1,9 @@
 <script>
-  import Prism from "prismjs";
-  import "prism-svelte";
+  import { onMount } from "svelte";
 
-  Prism.manual = true;
+  onMount(async () => {
+    await import("prismjs");
+  });
 
   let html;
 </script>
@@ -19,8 +20,9 @@
 </div>
 
 {#if html}
-  <pre
-    class="language-svelte">
-      {@html Prism.highlight(html, Prism.languages.svelte, 'svelte')}
+  <pre>
+    <code class="language-html">
+      {html}
+    </code>
   </pre>
 {/if}
