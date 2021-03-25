@@ -1,12 +1,12 @@
 <script>
-  import Icons from "./../../public/assets/icomoon/selection.json";
+  import Icons from "../../../static/icomoon/selection.json";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Code from "svelte-component-kit/Code.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Tooltip from "svelte-component-kit/Tooltip.svelte";
-  import InteractiveTable from "./InteractiveTable.svelte";
-  import Table from "./Table.svelte";
-  import { formatProps } from "../js/helpers";
+  import InteractiveTable from "$lib/InteractiveTable.svelte";
+  import Table from "$lib/Table.svelte";
+  import { formatProps } from "$lib/js/helpers";
 
   let props = [
     {
@@ -121,9 +121,6 @@ ${formatProps(demoProps)}/>`}
 </div>
 
 <style>
-  .presentation :global(.icon:hover .tooltip) {
-    opacity: 1;
-  }
   .icons {
     margin: 40px 0;
   }

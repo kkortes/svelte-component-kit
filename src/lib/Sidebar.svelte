@@ -1,26 +1,22 @@
 <script>
-  import { store, actions } from "./store";
+  import { page } from "$app/stores";
+  import { store } from "$lib/js/store";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
-
-  const { clickPage } = actions;
+  import PAGES from "./consts/PAGES";
 </script>
 
 <div class="sidebar" class:open={$store.sidebarOpen}>
   <Crow vertical left>
-    {#each $store.pages as name}
+    {#each PAGES as { name, url, icon }}
       <div>
-        <div
-          class="link"
-          on:click={() => clickPage(name)}
-          class:active={$store.activePage === name}
-        >
+        <a class="link" href={url} class:active={$page.path === url}>
           <Icon
-            name={name === "home" ? "logo-svelte" : name}
-            size={name === "home" ? 30 : 20}
+            name={icon}
+            size={icon === "logo-svelte" ? 30 : 20}
             color="#cbd0d4"
           /><span class="name">{name}</span><span class="ending">.svelte</span>
-        </div>
+        </a>
       </div>
     {/each}
   </Crow>
@@ -48,6 +44,7 @@
   .link:hover {
     background: #33383e;
     cursor: normal;
+    text-decoration: none;
   }
   .link:is(.active) {
     background: #33383e;

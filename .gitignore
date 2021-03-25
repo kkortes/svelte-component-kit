@@ -1,6 +1,5 @@
-/node_modules/
-/public/build/
-
 .DS_Store
-
-.vercel
+node_modules
+/.svelte
+/build
+/functions

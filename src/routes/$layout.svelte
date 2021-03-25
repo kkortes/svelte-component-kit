@@ -1,6 +1,6 @@
 <script>
-  import { store, actions } from "./store";
-  import Sidebar from "./Sidebar.svelte";
+  import { store, actions } from "$lib/js/store";
+  import Sidebar from "$lib/Sidebar.svelte";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
 
@@ -25,7 +25,7 @@
       <Icon name="right" color="#fff" size={24} />
     </div>
   </div>
-  <div class="main" style="--flex: 10;" bind:this={$store.refs["main"]}>
+  <div class="main" style="--flex: 10;">
     <slot />
   </div>
 </Crow>
@@ -64,5 +64,28 @@
   .main {
     overflow: hidden;
     overflow-y: scroll;
+  }
+  :global(.demo) {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  :global(span.highlight) {
+    font-family: "Arial", serif;
+    letter-spacing: 1px;
+    background: #fafafa;
+    padding: 0 4px;
+    margin: 0 -4px;
+    color: #b32c00;
+  }
+  :global(.tooltip) {
+    opacity: 0;
+    pointer-events: none;
+    line-height: 18px;
+  }
+  :global(.icon:hover .tooltip) {
+    opacity: 1;
   }
 </style>

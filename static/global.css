@@ -102,13 +102,13 @@ button:focus {
   background: transparent;
 }
 
-.demo pre.language-svelte {
-  border-radius: 3px;
-  padding: 8px;
-  font-size: 14px;
-  margin: 0;
+.demo pre {
+  border-radius: 3px !important;
+  padding: 8px !important;
+  font-size: 14px !important;
+  margin: 0 !important;
 }
 
-.demo pre.language-svelte .token {
+.demo pre .token {
   z-index: 0;
 }

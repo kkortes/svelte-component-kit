@@ -1,10 +1,10 @@
 <script>
-  import { formatProps } from "../js/helpers";
+  import { formatProps } from "$lib/js/helpers";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Code from "svelte-component-kit/Code.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
-  import InteractiveTable from "./InteractiveTable.svelte";
-  import Table from "./Table.svelte";
+  import InteractiveTable from "$lib/InteractiveTable.svelte";
+  import Table from "$lib/Table.svelte";
 
   let props = [
     {

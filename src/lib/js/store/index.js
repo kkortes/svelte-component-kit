@@ -1,6 +1,7 @@
-import { writable, get } from 'svelte/store';
-import reducers from './reducers.js';
-import INITIAL_STORE from './initialStore.js';
+import { writable, get } from "svelte/store";
+import reducers from "$lib/js/store/reducers";
+import INITIAL_STORE from "$lib/js/store/initialStore";
+import { browser } from "$app/env";
 
 const compare = (a, b) => {
   if (a > b) return +1;
@@ -15,7 +16,10 @@ const generateID = () =>
     Math.round(performance.now())
   ).toString(36)}`;
 
-const LS = window.localStorage.getItem('store') ? { ...JSON.parse(window.localStorage.getItem('store')) } : {};
+const LS =
+  browser && window.localStorage.getItem("store")
+    ? { ...JSON.parse(window.localStorage.getItem("store")) }
+    : {};
 
 const store = writable({ ...INITIAL_STORE, ...LS });
 const queue = writable([]);
@@ -36,7 +40,7 @@ const generateQueuePackage = (payload, reducer) => ({
 const generateActions = (topLevel = false) =>
   Object.entries(reducers).reduce(
     (a, [action, reducer]) =>
-      reducer.constructor.name === 'AsyncFunction'
+      reducer.constructor.name === "AsyncFunction"
         ? {
             ...a,
             [action]: async (payload) =>
@@ -48,7 +52,7 @@ const generateActions = (topLevel = false) =>
             ...a,
             [action]: (payload) => {
               let result;
-							result = reducer(payload, get(store), generateActions());
+              result = reducer(payload, get(store), generateActions());
               queueResolver(generateQueuePackage(payload, reducer));
               return result;
             },
@@ -107,7 +111,9 @@ const queueResolver = async (queuePackage) => {
 
 store.subscribe((s) => {
   const { pages, layout, ...rest } = s;
-  window.localStorage.setItem('store', JSON.stringify(rest))
+  if (browser) {
+    window.localStorage.setItem("store", JSON.stringify(rest));
+  }
   actions = generateActions(true);
 });
 

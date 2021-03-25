@@ -2,19 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-
-    <title>Svelte Component Kit</title>
-
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/build/bundle.css" />
+    <link rel="stylesheet" href="/icomoon/style.css" />
+    <link rel="stylesheet" href="/prism-twilight.css" />
 
-    <script defer src="/build/bundle.js"></script>
+    %svelte.head%
   </head>
-
-  <body></body>
+  <body id="svelte">
+    %svelte.body%
+  </body>
 </html>

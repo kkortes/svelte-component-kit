@@ -1,0 +1,33 @@
+<script>
+  import Icon from "svelte-component-kit/Icon.svelte";
+</script>
+
+<div class="content">
+  <div class="title">
+    <h1>Svelte component kit</h1>
+    <a href="https://github.com/kkortes/svelte-component-kit" target="_blank">
+      <Icon name="github" size={30} />
+    </a>
+  </div>
+
+  This website showcases my
+  <span class="highlight">svelte-component-kit</span>-repo on github.<br /><br
+  />
+  I'll be adding components to this kit over time.<br /><br />
+  The goal is to provide clean and easy-to-use components for elements and layouts
+  that are commonly used.<br /><br />
+  Feel free to provide feedback, I'd love to hear your opinion on the code!
+</div>
+
+<style>
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+</style>

@@ -2,9 +2,9 @@
   import Tooltip from "svelte-component-kit/Tooltip.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Code from "svelte-component-kit/Code.svelte";
-  import InteractiveTable from "./InteractiveTable.svelte";
-  import Table from "./Table.svelte";
-  import { generateStyles, formatProps } from "../js/helpers.js";
+  import InteractiveTable from "$lib/InteractiveTable.svelte";
+  import Table from "$lib/Table.svelte";
+  import { generateStyles, formatProps } from "$lib/js/helpers.js";
 
   let parent;
   let randomDotStyles;
@@ -149,11 +149,6 @@ ${formatProps(demoProps)}>
     height: 80px;
     left: 50%;
     top: 50%;
-  }
-  :global(.tooltip) {
-    opacity: 0;
-    pointer-events: none;
-    line-height: 18px;
   }
   .box:hover :global(.tooltip) {
     opacity: 0.9;

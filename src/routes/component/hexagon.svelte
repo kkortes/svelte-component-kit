@@ -2,9 +2,9 @@
   import Code from "svelte-component-kit/Code.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Hexagon from "svelte-component-kit/Hexagon.svelte";
-  import InteractiveTable from "./InteractiveTable.svelte";
-  import Table from "./Table.svelte";
-  import { formatProps } from "../js/helpers.js";
+  import InteractiveTable from "$lib/InteractiveTable.svelte";
+  import Table from "$lib/Table.svelte";
+  import { formatProps } from "$lib/js/helpers.js";
 
   let props = [
     {

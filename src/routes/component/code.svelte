@@ -17,12 +17,9 @@
   This component has no props.<br /><br />
 
   <strong>Prerequisites</strong><br />
-  Add
-  <span class="highlight"
-    >{'import "../node_modules/prismjs/themes/prism-twilight.css";'}</span
-  >
-  to your main component in order to include all styles needed to render this code
-  block.
+  Grab one of the CSS-files from:
+  <span class="highlight">{"node_modules/prismjs/themes/*.css"}</span>
+  and include it in your app.
 </div>
 
 <div class="single">

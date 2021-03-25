@@ -1,10 +1,10 @@
 <script>
-  import Table from "./Table.svelte";
+  import Table from "$lib/Table.svelte";
   import Cards from "svelte-component-kit/Cards.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
   import Code from "svelte-component-kit/Code.svelte";
-  import InteractiveTable from "./InteractiveTable.svelte";
-  import { formatProps } from "../js/helpers.js";
+  import InteractiveTable from "$lib/InteractiveTable.svelte";
+  import { formatProps } from "$lib/js/helpers";
 
   let props = [
     {
