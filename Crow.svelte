@@ -113,18 +113,18 @@
     justify-content: flex-start;
   }
   .debug :global(> div:nth-child(1)) {
-    background-color: gainsboro;
+    background-color: rgba(220, 220, 220, 0.75);
   }
   .debug :global(> div:nth-child(2)) {
-    background-color: silver;
+    background-color: rgba(192, 192, 192, 0.75);
   }
   .debug :global(> div:nth-child(3)) {
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.75);
   }
   .debug :global(> div:nth-child(4)) {
-    background-color: dimgray;
+    background-color: rgba(105, 105, 105, 0.75);
   }
   .debug :global(> div:nth-child(5)) {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.75);
   }
 </style>

@@ -36,7 +36,7 @@
     <div class="before" style={beforeStyle(width, height, color)} />
     <div class="after" style={afterStyle(width, height, color)} />
   </div>
-  <div class="content">
+  <div class="inner">
     <slot />
   </div>
 </div>
@@ -67,7 +67,7 @@
   .shape.shadow {
     transform: translate(1px, 1px);
   }
-  .content {
+  .inner {
     position: absolute;
     top: 0;
     left: 0;
