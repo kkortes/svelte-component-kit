@@ -1,6 +1,6 @@
 {
   "name": "svelte-component-kit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Clean and easy-to-use components for elements and layouts that are commonly used",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

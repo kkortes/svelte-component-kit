@@ -1,11 +1,23 @@
 <script>
   import { onMount } from "svelte";
 
+  let html,
+    prism,
+    finalOutput = "";
+
   onMount(async () => {
     await import("prismjs");
+    await import("prism-svelte");
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+    prism = Prism;
   });
 
-  let html;
+  $: {
+    if (prism) {
+      finalOutput = prism.highlight(html, prism.languages.svelte, "svelte");
+    }
+  }
 </script>
 
 <div
@@ -19,10 +31,8 @@
   <slot />
 </div>
 
-{#if html}
-  <pre>
-    <code class="language-html">
-      {html}
-    </code>
-  </pre>
-{/if}
+<pre class="language-svelte">
+  <code>
+    {@html finalOutput}
+  </code>
+</pre>
