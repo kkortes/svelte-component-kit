@@ -1,6 +1,6 @@
 {
 	"name": "svelte-component-kit-presentation",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -15,7 +15,7 @@
 	"dependencies": {
 		"prismjs": "^1.23.0",
 		"sirv-cli": "^1.0.0",
-		"svelte-component-kit": "^1.0.6"
+		"svelte-component-kit": "^1.0.7"
 	},
 	"type": "module",
 	"engines": {
