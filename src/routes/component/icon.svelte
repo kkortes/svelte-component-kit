@@ -74,16 +74,12 @@
 
   <strong>Prerequisites</strong><br />
   Copy the <span class="highlight">icomoon</span> folder from
-  <span class="highlight">svelte-component-kit</span>
-  npm package (in your <span class="highlight">node_modules</span>) and place it
-  in
-  <span class="highlight">public/assets</span>.<br /><br />
-
-  Add
-  <span class="highlight">{'import "../public/assets/icomoon/style.css";'}</span
+  <span class="highlight"
+    >{"node_modules/svelte-component-kit/icomoon/style.css"}</span
   >
-  to your main component in order to include all styles & fonts needed to render
-  the icons.
+  and place it in your <span class="highlight">static</span> directory.<br /><br
+  />
+
   <br /><br />
 
   <strong>Tip!</strong><br />

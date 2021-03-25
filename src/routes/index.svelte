@@ -14,8 +14,7 @@
   <span class="highlight">svelte-component-kit</span>-repo on github.<br /><br
   />
   I'll be adding components to this kit over time.<br /><br />
-  The goal is to provide clean and easy-to-use components for elements and layouts
-  that are commonly used.<br /><br />
+  The goal is to provide clean and easy-to-use components.<br /><br />
   Feel free to provide feedback, I'd love to hear your opinion on the code!
 </div>
 
