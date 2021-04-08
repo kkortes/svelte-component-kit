@@ -4,7 +4,7 @@ const { HEX_WIDTH, HEX_HEIGHT } = constants;
 const drawCoordinates = ({ x, y, drawX, drawY }, ctx) => {
   const size = 16;
   ctx.font = `${size}px Arial`;
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "#fff";
   ctx.textAlign = "center";
   ctx.fillText(`${x},${y}`, drawX, drawY + size * 0.35);
 
@@ -32,6 +32,33 @@ const drawHexagon = ({ corners }, ctx) => {
   ctx.shadowBlur = 0;
 };
 
+const drawTile = ({ drawX, drawY }, ctx, sprite) => {
+  const backgroundX = 0;
+  const backgroundY = 0;
+
+  let imageWidth = 256;
+  let imageHeight = 520;
+
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 0;
+  ctx.shadowColor = "transparent";
+
+  ctx.drawImage(
+    // Image sprite
+    sprite,
+    // In-image coordinates
+    backgroundX,
+    backgroundY,
+    imageWidth,
+    imageHeight,
+    // Canvas coordinates
+    drawX - HEX_WIDTH / 2,
+    drawY - HEX_HEIGHT / 2 - HEX_HEIGHT,
+    HEX_WIDTH,
+    HEX_HEIGHT * 2
+  );
+};
+
 const drawHexagonSpriteArea = ({ drawX, drawY }, ctx) => {
   const x = drawX - HEX_WIDTH / 2;
   const y = drawY - HEX_HEIGHT / 2;
@@ -47,4 +74,4 @@ const drawHexagonSpriteArea = ({ drawX, drawY }, ctx) => {
   ctx.fill();
 };
 
-export { drawHexagon, drawHexagonSpriteArea, drawCoordinates };
+export { drawHexagon, drawHexagonSpriteArea, drawCoordinates, drawTile };

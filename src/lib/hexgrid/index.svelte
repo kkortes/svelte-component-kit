@@ -1,9 +1,16 @@
 <script>
   import { store } from "$lib/js/store";
   import { onMount } from "svelte";
-  import { drawHexagonSpriteArea, drawHexagon, drawCoordinates } from "./draw";
+  import {
+    drawHexagonSpriteArea,
+    drawHexagon,
+    drawCoordinates,
+    drawTile,
+  } from "./draw";
   import { ensureCenterAndFill, regenerate, applyMeta } from "./tiles";
 
+  export let sprites;
+  console.log(sprites);
   let canvas, width, height, tiles, x, y;
 
   $: {
@@ -42,8 +49,9 @@
         Object.values(tiles)
           .sort((a, b) => (a.z > b.z ? 1 : -1))
           .forEach((tile) => {
+            drawTile(tile, ctx, sprites.cold_lands);
             // drawHexagonSpriteArea(tile, ctx);
-            drawHexagon(tile, ctx);
+            // drawHexagon(tile, ctx);
             drawCoordinates(tile, ctx);
           });
         x = nX;

@@ -3,7 +3,7 @@ import produce from "immer";
 import lodash from "lodash/fp";
 import constants from "./constants";
 
-const { times, isEmpty, range } = lodash;
+const { isEmpty, range } = lodash;
 const { BLEEDING_TILES, HEX_HEIGHT, HEX_WIDTH } = constants;
 
 const getHexagonCorners = (drawX, drawY) => {
@@ -107,7 +107,7 @@ const applyMeta = (t, nX, nY, xOffset, yOffset) =>
     Object.entries(tiles).forEach(([tile, { x, y }]) => {
       const drawX =
         (x - nX) * HEX_WIDTH + xOffset + ((y - nY) % 2 ? HEX_WIDTH / 2 : 0);
-      const drawY = (y - nY) * HEX_HEIGHT * 0.75 + yOffset;
+      const drawY = (y - nY) * HEX_HEIGHT * 0.74 + yOffset;
       tiles[tile].drawX = drawX;
       tiles[tile].drawY = drawY;
       tiles[tile].corners = getHexagonCorners(drawX, drawY);
