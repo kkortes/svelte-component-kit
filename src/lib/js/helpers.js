@@ -13,4 +13,9 @@ const formatProps = (props) =>
     ""
   );
 
-export { generateStyles, formatProps };
+const intToArray = (int) =>
+  Array(int)
+    .fill(0)
+    .map((_, i) => i);
+
+export { generateStyles, formatProps, intToArray };

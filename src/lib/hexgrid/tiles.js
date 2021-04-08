@@ -1,3 +1,4 @@
+import { intToArray } from "$lib/js/helpers";
 import produce from "immer";
 import lodash from "lodash/fp";
 import constants from "./constants";
@@ -27,8 +28,8 @@ const ensureCenterAndFill = (width, height) => {
   const rows = rowFit % 2 ? rowFit : rowFit - 1;
 
   return {
-    columns,
-    rows,
+    columns: intToArray(columns),
+    rows: intToArray(rows),
   };
 };
 
@@ -39,19 +40,18 @@ const makeTile = (x, y) => ({
 });
 
 const makeInitialTiles = (columns, rows, nX, nY) =>
-  times(
-    (columnIndex) =>
-      times((rowIndex) => {
-        const column = columnIndex - (columns - 1) / 2;
-        const row = rowIndex - (rows - 1) / 2;
+  columns
+    .map((columnIndex) =>
+      rows.map((rowIndex) => {
+        const column = columnIndex - (columns.length - 1) / 2;
+        const row = rowIndex - (rows.length - 1) / 2;
 
         const x = column + nX;
         const y = row + nY;
 
         return makeTile(x, y);
-      }, rows),
-    columns
-  )
+      })
+    )
     .flat()
     .reduce((a, tile) => ({ ...a, [`${tile.x}_${tile.y}`]: tile }), {});
 
@@ -60,10 +60,10 @@ const regenerate = (tiles, columns, rows, oX, oY, nX, nY) =>
     ? makeInitialTiles(columns, rows, nX, nY)
     : produce(tiles, (tempTiles) => {
         let lesserHalf, greaterHalf;
-        lesserHalf = Math.floor(columns / 2);
-        greaterHalf = Math.ceil(columns / 2);
+        lesserHalf = Math.floor(columns.length / 2);
+        greaterHalf = Math.ceil(columns.length / 2);
 
-        const extra = (columns - rows) / 2;
+        const extra = (columns.length - rows.length) / 2;
 
         if (oX !== nX) {
           range(nY - lesserHalf + extra, nY + greaterHalf - extra).forEach(

@@ -1,19 +1,14 @@
 <script>
   import { store } from "$lib/js/store";
+  import { onMount } from "svelte";
   import { drawHexagonSpriteArea, drawHexagon, drawCoordinates } from "./draw";
   import { ensureCenterAndFill, regenerate, applyMeta } from "./tiles";
 
-  let canvas, innerWidth, innerHeight, windowWidth, windowHeight, tiles, x, y;
+  let canvas, width, height, tiles, x, y;
 
-  $: {
-    windowWidth = innerWidth - 50;
-    windowHeight = innerHeight;
-  }
   $: {
     if (canvas) {
       // const { width, height } = canvas.getBoundingClientRect();
-      const width = windowWidth;
-      const height = windowHeight;
 
       const ctx = canvas.getContext("2d");
       const { columns, rows } = ensureCenterAndFill(width, height);
@@ -74,6 +69,13 @@
       };
     }
   };
+
+  const resize = () => {
+    width = window.innerWidth - 50;
+    height = window.innerHeight;
+  };
+
+  onMount(() => resize());
 </script>
 
 <div class="canvas">
@@ -81,17 +83,16 @@
     bind:this={canvas}
     on:click={click}
     class="canvas"
-    width={`${innerWidth}px`}
-    height={`${innerHeight}px`}
+    width={`${width}px`}
+    height={`${height}px`}
   />
 </div>
 
-<svelte:window bind:innerWidth bind:innerHeight />
+<svelte:window on:resize={resize} />
 
 <style>
   .canvas {
-    background: pink;
-    perspective: 500px;
     line-height: 0;
+    /* transform: rotateX(45deg); */
   }
 </style>
