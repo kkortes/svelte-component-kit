@@ -13,8 +13,6 @@
 		"vite": "^2.1.0"
 	},
 	"dependencies": {
-		"immer": "^9.0.1",
-		"lodash": "^4.17.21",
 		"prismjs": "^1.23.0",
 		"sirv-cli": "^1.0.0",
 		"svelte-component-kit": "^1.0.9"
