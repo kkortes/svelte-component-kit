@@ -30,21 +30,7 @@
   </div>
 </Crow>
 
-<div class="debug-menu">
-  <pre>
-    {JSON.stringify(Object.entries($store).reduce((a, [prop, value]) => ({...a, [prop]: value}), {}), null, 2)}
-  </pre>
-</div>
-
 <style>
-  .debug-menu {
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
-    padding: 0 20px;
-    background: rgba(0, 0, 0, 0.95);
-    color: #fff;
-  }
   .minimize-panel {
     position: absolute;
     bottom: 0;
