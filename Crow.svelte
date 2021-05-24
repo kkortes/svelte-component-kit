@@ -12,7 +12,7 @@
 </script>
 
 <div
-  class="crow"
+  class={["crow", $$props.class].filter((v) => v).join(" ")}
   class:fly
   class:vertical
   class:horizontal
