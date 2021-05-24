@@ -73,7 +73,7 @@
     align-content: flex-end;
   }
   .crow.down.vertical :global(> *) {
-    align-items: flex-end;
+    justify-content: flex-end;
   }
   .down.horizontal {
     align-items: flex-end;
@@ -109,14 +109,14 @@
     margin-bottom: calc(var(--gutter) * -1px);
   }
   .vertical :global(> *) {
-    justify-content: center;
+    align-items: center;
     width: 100%;
   }
   .right.vertical :global(> *) {
-    justify-content: flex-end;
+    align-items: flex-end;
   }
   .left.vertical :global(> *) {
-    justify-content: flex-start;
+    align-items: flex-start;
   }
   .debug :global(> div:nth-child(1)) {
     background-color: rgba(220, 220, 220, 0.75);
