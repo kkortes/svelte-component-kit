@@ -9,10 +9,13 @@
   export let vertical = !horizontal;
   export let debug = false;
   horizontal = !vertical;
+
+  let { class: classes, ...props } = $$restProps;
 </script>
 
 <div
-  class={["crow", $$props.class].filter((v) => v).join(" ")}
+  {...props}
+  class={["crow", classes].filter((v) => v).join(" ")}
   class:fly
   class:vertical
   class:horizontal
@@ -32,28 +35,26 @@
     flex: 1 0 100%;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
   }
   .crow :global(> *) {
     display: flex;
-    flex-wrap: wrap;
     align-content: center;
     flex: var(--flex, none);
   }
   .crow.horizontal :global(> *) {
     padding-left: calc(var(--gutter) * 1px);
     padding-right: calc(var(--gutter) * 1px);
-    flex-direction: row;
+    flex-direction: column;
   }
   .crow.vertical :global(> *) {
     padding-top: calc(var(--gutter) * 1px);
     padding-bottom: calc(var(--gutter) * 1px);
-    flex-direction: column;
+    flex-direction: row;
   }
   .fly :global(> *) {
     flex: 1;
   }
-  .crow.up :global(> *) {
+  .crow.up.horizontal :global(> *) {
     align-content: flex-start;
   }
   .up.horizontal {
@@ -68,8 +69,11 @@
   .right.vertical {
     align-items: flex-end;
   }
-  .crow.down :global(> *) {
+  .crow.down.horizontal :global(> *) {
     align-content: flex-end;
+  }
+  .crow.down.vertical :global(> *) {
+    align-items: flex-end;
   }
   .down.horizontal {
     align-items: flex-end;
@@ -87,26 +91,26 @@
     flex-direction: row;
     margin-left: calc(var(--gutter) * -1px);
     margin-right: calc(var(--gutter) * -1px);
+    flex-wrap: wrap;
   }
   .horizontal :global(> *) {
+    justify-content: center;
     height: 100%;
-    align-items: center;
   }
   .up.horizontal :global(> *) {
-    align-items: flex-start;
+    justify-content: flex-start;
   }
   .down.horizontal :global(> *) {
-    align-items: flex-end;
+    justify-content: flex-end;
   }
   .vertical {
     flex-direction: column;
-    width: 100%;
     margin-top: calc(var(--gutter) * -1px);
     margin-bottom: calc(var(--gutter) * -1px);
   }
   .vertical :global(> *) {
-    width: 100%;
     justify-content: center;
+    width: 100%;
   }
   .right.vertical :global(> *) {
     justify-content: flex-end;
