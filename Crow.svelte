@@ -43,10 +43,12 @@
   .crow.horizontal :global(> *) {
     padding-left: calc(var(--gutter) * 1px);
     padding-right: calc(var(--gutter) * 1px);
+    flex-direction: row;
   }
   .crow.vertical :global(> *) {
     padding-top: calc(var(--gutter) * 1px);
     padding-bottom: calc(var(--gutter) * 1px);
+    flex-direction: column;
   }
   .fly :global(> *) {
     flex: 1;
