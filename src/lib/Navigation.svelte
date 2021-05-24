@@ -27,6 +27,11 @@
     width: 100%;
     height: 100%;
     background: #40464c;
+    padding-left: 68px;
+    transition: padding-left 0.25s ease;
+  }
+  .navigation.open {
+    padding-left: 0;
   }
   .link {
     flex: 1;
@@ -36,6 +41,7 @@
     align-items: center;
     justify-content: flex-start;
     transition: transform 0.25s ease, background 0.1s ease;
+    width: 185px;
   }
   .link:hover {
     background: #33383e;
