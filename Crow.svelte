@@ -49,7 +49,7 @@
   .crow.vertical :global(> *) {
     padding-top: calc(var(--gutter) * 1px);
     padding-bottom: calc(var(--gutter) * 1px);
-    flex-direction: row;
+    flex-direction: column;
   }
   .fly :global(> *) {
     flex: 1;
