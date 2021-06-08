@@ -122,8 +122,7 @@
     transition: opacity 0.15s ease;
   }
   .inner {
-    position: relative;
-    padding: 8px;
+    position: relative; 
     background: #000;
     color: #fff;
   }
