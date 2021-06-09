@@ -116,9 +116,6 @@
 <style>
   .tooltip {
     position: absolute;
-    font-size: 14px;
-    line-height: 16px;
-    font-family: "Gill Sans", sans-serif;
     transition: opacity 0.15s ease;
   }
   .inner {
