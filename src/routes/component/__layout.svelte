@@ -13,7 +13,6 @@
     width: 100%;
     background-color: #40464c;
     padding: 30px;
-    min-height: 25vh;
   }
   :global(.panel pre) {
     min-width: 200px;

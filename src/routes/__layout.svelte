@@ -80,7 +80,6 @@
     max-width: 800px;
     width: 100%;
     padding: 75px 20px;
-    min-height: calc(50vh - 150px);
   }
   :global(span.highlight) {
     font-family: "Arial", serif;

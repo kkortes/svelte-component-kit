@@ -14,7 +14,7 @@
           <Icon
             name={icon}
             size={icon === "logo-svelte" ? 30 : 20}
-            color="#cbd0d4"
+            color={icon === "logo-svelte" ? '' : '#cbd0d4'}
           /><span class="name">{name}</span>
         </a>
       </div>
@@ -27,11 +27,6 @@
     width: 100%;
     height: 100%;
     background: #40464c;
-    padding-left: 68px;
-    transition: padding-left 0.25s ease;
-  }
-  .navigation.open {
-    padding-left: 0;
   }
   .link {
     flex: 1;

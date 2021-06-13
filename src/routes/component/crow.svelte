@@ -63,7 +63,17 @@
     },
   ];
 
-  let demoProps = props;
+  let demoProps = [
+    ...props.map((prop) => {
+      if (prop.name === "debug") {
+        return {
+          ...prop,
+          defaultValue: true,
+        };
+      }
+      return prop;
+    }),
+  ];
 
   const changeProp = (propName, value) =>
     (demoProps = demoProps.map((prop) =>
@@ -138,8 +148,5 @@ ${formatProps(demoProps)}>
 <style>
   .inner {
     padding: 8px;
-  }
-  .component {
-    overflow: hidden;
   }
 </style>
