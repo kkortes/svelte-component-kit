@@ -15,7 +15,7 @@
     <tbody>
       <tr>
         <td>{name}</td>
-        <td>{defaultValue}</td>
+        <td>{JSON.stringify(defaultValue)}</td>
         <td style="text-align: center;">
           {#if type === "integer"}
             <input
@@ -50,6 +50,8 @@
             />
           {:else if type === "[DOM reference]"}
             [DOM reference]
+          {:else if type === "array"}
+            [array]
           {:else if type === "float"}
             <input
               type="range"
