@@ -9,13 +9,15 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
+		"prettier": "^2.4.0",
+		"prettier-plugin-svelte": "^2.4.0",
 		"svelte": "^3.34.0",
 		"vite": "^2.1.0"
 	},
 	"dependencies": {
 		"prismjs": "^1.23.0",
 		"sirv-cli": "^1.0.0",
-		"svelte-component-kit": "^1.1.8"
+		"svelte-component-kit": "^1.2.0"
 	},
 	"engines": {
 		"node": ">= 12.17.0"

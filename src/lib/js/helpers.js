@@ -1,5 +1,5 @@
 const wrapBasedOnType = (value) =>
-  typeof value !== "string" ? `{${value}}` : `"${value}"`;
+  typeof value !== "string" ? `{${JSON.stringify(value)}}` : `"${value}"`;
 
 const generateStyles = (styles) =>
   Object.entries(styles)

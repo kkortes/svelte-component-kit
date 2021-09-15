@@ -10,6 +10,11 @@ export default [
     icon: "cards",
   },
   {
+    name: "circle",
+    url: "/component/circle",
+    icon: "circle",
+  },
+  {
     name: "code",
     url: "/component/code",
     icon: "code",
