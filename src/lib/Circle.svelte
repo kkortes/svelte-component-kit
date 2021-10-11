@@ -8,9 +8,9 @@
 
   $: contestants = depths.reduce((a, chars) => a + chars.length, 0);
 
-  $: footWidth = 260; // 130
-  $: originalRatio = 1000 + footWidth * 2;
-  $: circumference = 1000 + (footWidth / 2) * contestants; // footWidth * contestants
+  $: footWidth = 60;
+  $: originalRatio = 500 + footWidth;
+  $: circumference = 500 + footWidth * contestants;
 
   $: radius = circumference / (Math.PI * 2);
   $: size = radius * 2;
@@ -66,7 +66,7 @@
 
 <style>
   .circle {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     border-radius: 50%;

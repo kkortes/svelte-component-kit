@@ -29,7 +29,11 @@
       if (prop.name === 'depths') {
         return {
           ...prop,
-          defaultValue: [[1, 2], [3, 4], [5]],
+          defaultValue: [
+            // [{ name: 'first' }, { name: 'second' }],
+            // [{ name: 'third' }, { name: 'fourth' }],
+            [{ name: 'fifth' }],
+          ],
         };
       }
 
