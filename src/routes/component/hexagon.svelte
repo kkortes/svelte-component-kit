@@ -15,7 +15,7 @@
       type: "hexstring",
     },
     {
-      name: "width",
+      name: "size",
       optional: true,
       defaultValue: 100,
       type: "integer",
@@ -56,14 +56,16 @@
 
 <div class="component">
   <Crow>
-    <Hexagon
-      {...demoProps.reduce(
-        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-        {}
-      )}
-    >
-      <Icon name="logo-svelte" size={60} />
-    </Hexagon>
+    <div>
+      <Hexagon
+        {...demoProps.reduce(
+          (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
+          {}
+        )}
+      >
+        <Icon name="logo-svelte" size={60} />
+      </Hexagon>
+    </div>
   </Crow>
 </div>
 
