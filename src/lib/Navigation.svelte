@@ -3,7 +3,7 @@
   import { store } from "$lib/js/store";
   import Crow from "svelte-component-kit/Crow.svelte";
   import Icon from "svelte-component-kit/Icon.svelte";
-  import PAGES from "./consts/PAGES";
+  import PAGES from "$lib/consts/PAGES";
 </script>
 
 <div class="navigation" class:open={$store.sidebarOpen}>

@@ -75,7 +75,7 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  :global(.content) {
+  :global(.main > .content) {
     margin: 0 auto;
     max-width: 800px;
     width: 100%;
