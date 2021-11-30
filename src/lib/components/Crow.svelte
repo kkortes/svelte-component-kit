@@ -21,7 +21,7 @@
   class:down
   class:left
   {...(style || gutter) && {
-    style: `${style || ''}${gutter ? `--gutter: ${gutter}px;` : ''}`,
+    style: `${style || ''}${gutter ? `gap: ${gutter}px;` : ''}`,
   }}
 >
   <slot />
@@ -32,7 +32,6 @@
     display: grid;
     min-height: 100%;
     min-width: 100%;
-    gap: var(--gutter);
     align-content: center;
     justify-content: center;
     align-items: center;
