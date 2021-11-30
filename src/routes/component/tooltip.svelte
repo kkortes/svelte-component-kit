@@ -2,7 +2,7 @@
   import { Tooltip, Icon, Code, Crow } from 'svelte-component-kit';
   import InteractiveTable from '$lib/InteractiveTable.svelte';
   import Table from '$lib/Table.svelte';
-  import { generateStyles, formatProps } from '$lib/js/helpers.js';
+  import { generateStyles, formatProps } from '$lib/utils/helpers.js';
 
   let parent;
   let randomDotStyles;

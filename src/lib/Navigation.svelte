@@ -1,6 +1,6 @@
 <script>
   import { page } from '$app/stores';
-  import { store } from '$lib/js/store';
+  import { store } from '$lib/utils/store';
   import { Crow, Icon } from 'svelte-component-kit';
   import PAGES from '$lib/consts/PAGES';
 </script>

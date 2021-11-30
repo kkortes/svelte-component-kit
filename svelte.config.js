@@ -1,4 +1,3 @@
-import mm from 'micromatch';
 import vercel from '@sveltejs/adapter-vercel';
 import fs from 'fs';
 import path from 'path';
@@ -13,7 +12,7 @@ export default {
     target: '#svelte',
     package: {
       exports: (file) => file === 'index.js',
-      files: mm.matcher(['**/components/*', 'index.js']),
+      files: (file) => file.startsWith('component') || file === 'index.js',
     },
     vite: {
       ssr: {

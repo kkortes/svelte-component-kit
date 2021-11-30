@@ -1,6 +1,6 @@
 <script>
   import { Crow, Icon } from 'svelte-component-kit';
-  import { store, actions } from '$lib/js/store';
+  import { store, actions } from '$lib/utils/store';
   import Navigation from '$lib/Navigation.svelte';
 
   const { toggleSidebarOpen } = actions;

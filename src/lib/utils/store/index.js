@@ -1,7 +1,7 @@
-import { writable, get } from "svelte/store";
-import reducers from "$lib/js/store/reducers";
-import INITIAL_STORE from "$lib/js/store/initialStore";
-import { browser } from "$app/env";
+import { writable, get } from 'svelte/store';
+import reducers from '$lib/utils/store/reducers';
+import INITIAL_STORE from '$lib/utils/store/initialStore';
+import { browser } from '$app/env';
 
 const compare = (a, b) => {
   if (a > b) return +1;
@@ -17,8 +17,8 @@ const generateID = () =>
   ).toString(36)}`;
 
 const LS =
-  browser && window.localStorage.getItem("store")
-    ? { ...JSON.parse(window.localStorage.getItem("store")) }
+  browser && window.localStorage.getItem('store')
+    ? { ...JSON.parse(window.localStorage.getItem('store')) }
     : {};
 
 const store = writable({ ...INITIAL_STORE, ...LS });
@@ -40,7 +40,7 @@ const generateQueuePackage = (payload, reducer) => ({
 const generateActions = (topLevel = false) =>
   Object.entries(reducers).reduce(
     (a, [action, reducer]) =>
-      reducer.constructor.name === "AsyncFunction"
+      reducer.constructor.name === 'AsyncFunction'
         ? {
             ...a,
             [action]: async (payload) =>
@@ -57,7 +57,7 @@ const generateActions = (topLevel = false) =>
               return result;
             },
           },
-    {}
+    {},
   );
 
 queue.subscribe(async (items) => {
@@ -76,29 +76,23 @@ queue.subscribe(async (items) => {
               todo: false,
               result,
             }
-          : item
-      )
+          : item,
+      ),
     );
   }
 });
 
 const queueResolver = async (queuePackage) => {
   queue.update((q) =>
-    [...q, queuePackage].sort((a, b) =>
-      compare(a.timeOfExecution, b.timeOfExecution)
-    )
+    [...q, queuePackage].sort((a, b) => compare(a.timeOfExecution, b.timeOfExecution)),
   );
   let unsubscribe;
   const resolve = await new Promise((resolve) => {
     unsubscribe = queue.subscribe((items) => {
-      const completedItem = items.find(
-        ({ id, todo }) => id === queuePackage.id && !todo
-      );
+      const completedItem = items.find(({ id, todo }) => id === queuePackage.id && !todo);
 
       if (completedItem) {
-        queue.update((items) =>
-          items.filter(({ id }) => id !== queuePackage.id)
-        );
+        queue.update((items) => items.filter(({ id }) => id !== queuePackage.id));
         runningID = undefined;
         resolve(completedItem.result);
       }
@@ -112,7 +106,7 @@ const queueResolver = async (queuePackage) => {
 store.subscribe((s) => {
   const { pages, layout, ...rest } = s;
   if (browser) {
-    window.localStorage.setItem("store", JSON.stringify(rest));
+    window.localStorage.setItem('store', JSON.stringify(rest));
   }
   actions = generateActions(true);
 });

@@ -3,7 +3,7 @@
   import Icons from '../../../static/icomoon/selection.json';
   import InteractiveTable from '$lib/InteractiveTable.svelte';
   import Table from '$lib/Table.svelte';
-  import { formatProps } from '$lib/js/helpers';
+  import { formatProps } from '$lib/utils/helpers';
 
   let props = [
     {

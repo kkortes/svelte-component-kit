@@ -2,7 +2,7 @@
   import { Code, Icon, Hexagon, Crow } from 'svelte-component-kit';
   import InteractiveTable from '$lib/InteractiveTable.svelte';
   import Table from '$lib/Table.svelte';
-  import { formatProps } from '$lib/js/helpers.js';
+  import { formatProps } from '$lib/utils/helpers.js';
 
   let props = [
     {

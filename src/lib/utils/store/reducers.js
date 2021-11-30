@@ -1,4 +1,4 @@
-import INITIAL_STORE from "$lib/js/store/initialStore";
+import INITIAL_STORE from '$lib/utils/store/initialStore';
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
 export default {
