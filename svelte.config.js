@@ -12,8 +12,8 @@ export default {
     adapter: vercel(),
     target: '#svelte',
     package: {
-      exports: (file) => file === 'components/index.js',
-      files: mm.matcher('**/components/*'),
+      exports: (file) => file === 'index.js',
+      files: mm.matcher(['**/components/*', 'index.js']),
     },
     vite: {
       ssr: {
@@ -22,7 +22,7 @@ export default {
       resolve: {
         mainFields: ['module', 'jsnext:main', 'jsnext', 'browser'],
         alias: {
-          'svelte-component-kit': path.resolve('src/lib/components'),
+          'svelte-component-kit': path.resolve('src/lib/index.js'),
         },
       },
     },
