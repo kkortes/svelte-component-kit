@@ -8,8 +8,6 @@
   export let down = false;
 
   let { class: classes, style, ...props } = $$restProps;
-
-  $: style = `${style}--gutter: ${gutter}px;`;
 </script>
 
 <div
@@ -22,7 +20,9 @@
   class:right
   class:down
   class:left
-  {style}
+  {...(style || gutter) && {
+    style: `${style || ''}${gutter ? `--gutter: ${gutter}px;` : ''}`,
+  }}
 >
   <slot />
 </div>
