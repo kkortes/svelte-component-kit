@@ -70,16 +70,15 @@
   <a href="https://icomoon.io/" target="_blank">Icomoon</a>.<br /><br />
 
   <strong>Prerequisites</strong><br />
-  Copy the <span class="highlight">icomoon</span> folder from
-  <span class="highlight">{'node_modules/svelte-component-kit/static/icomoon'}</span>
-  , place it in your <span class="highlight">static</span> directory & reference the stylesheet
+  Upload the
+  <span class="highlight">node_modules/svelte-component-kit/static/icomoon/selection.json</span>
+  file to icomoon. <br /><br />
+  After you picked the icons <i>you want</i> download the
+  <span class="highlight">{'icomoon'}</span>
+  folder and place it in your <span class="highlight">static</span> directory & reference the
+  stylesheet
   <span class="highlight">icommon/style.css</span>
   in your code.<br /><br />
-
-  <strong>Tip!</strong><br />
-  You can upload the <span class="highlight">selection.json</span>-file in the
-  <span class="highlight">icomoon</span>
-  folder to icomoon in order to change the icons to your liking.
 </div>
 
 <div class="component">

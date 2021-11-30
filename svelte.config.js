@@ -17,7 +17,7 @@ export default {
       exports: (name) => ['index.js'].includes(name),
       files: (name) =>
         name.startsWith('component') ||
-        name.startsWith('static/icomoon') ||
+        name.startsWith('static/icomoon/selection.json') ||
         name.startsWith('static/code-themes') ||
         ['index.js'].includes(name),
     },
