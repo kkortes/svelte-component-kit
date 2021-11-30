@@ -53,25 +53,9 @@
       defaultValue: false,
       type: 'boolean',
     },
-    {
-      name: 'debug',
-      optional: true,
-      defaultValue: false,
-      type: 'boolean',
-    },
   ];
 
-  let demoProps = [
-    ...props.map((prop) => {
-      if (prop.name === 'debug') {
-        return {
-          ...prop,
-          defaultValue: true,
-        };
-      }
-      return prop;
-    }),
-  ];
+  let demoProps = [...props];
 
   const changeProp = (propName, value) =>
     (demoProps = demoProps.map((prop) =>

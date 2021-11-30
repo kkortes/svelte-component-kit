@@ -1,5 +1,4 @@
 <script>
-  export let debug = false;
   export let gutter = 0;
   export let vertical = false;
   export let fly = false;
@@ -16,7 +15,6 @@
 <div
   {...props}
   class={['crow', classes].filter((v) => v).join(' ')}
-  class:debug
   class:vertical
   class:horizontal={!vertical}
   class:fly
@@ -40,12 +38,6 @@
     align-items: center;
     justify-items: center;
   }
-  .vertical {
-    grid-auto-flow: row;
-  }
-  .horizontal {
-    grid-auto-flow: column;
-  }
   .vertical.fly {
     align-content: stretch;
   }
@@ -67,5 +59,13 @@
   .left {
     justify-content: start;
     justify-items: start;
+  }
+  .vertical {
+    grid-auto-flow: row;
+    justify-content: stretch;
+  }
+  .horizontal {
+    grid-auto-flow: column;
+    align-content: stretch;
   }
 </style>
