@@ -10,9 +10,16 @@ export default {
   kit: {
     adapter: vercel(),
     target: '#svelte',
+    files: {
+      assets: 'src/lib/static',
+    },
     package: {
-      exports: (file) => file === 'index.js',
-      files: (file) => file.startsWith('component') || file === 'index.js',
+      exports: (name) => ['index.js'].includes(name),
+      files: (name) =>
+        name.startsWith('component') ||
+        name.startsWith('static/icomoon') ||
+        name.startsWith('static/code-themes') ||
+        ['index.js'].includes(name),
     },
     vite: {
       ssr: {

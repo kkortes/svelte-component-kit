@@ -17,8 +17,8 @@
 
   <strong>Prerequisites</strong><br />
   Grab one of the CSS-files from:
-  <span class="highlight">{'node_modules/prismjs/themes/*.css'}</span>
-  and include it in your app.
+  <span class="highlight">{'node_modules/svelte-component-kit/static/code-themes/*.css'}</span>
+  and place it in your <span class="highlight">static</span> directory & link it in.
 </div>
 
 <div class="component">

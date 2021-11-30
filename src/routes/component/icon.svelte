@@ -1,6 +1,6 @@
 <script>
   import { Icon, Code, Crow } from 'svelte-component-kit';
-  import Icons from '../../../static/icomoon/selection.json';
+  import Icons from '$lib/static/icomoon/selection.json';
   import InteractiveTable from '$lib/InteractiveTable.svelte';
   import Table from '$lib/Table.svelte';
   import { formatProps } from '$lib/utils/helpers';
@@ -71,8 +71,10 @@
 
   <strong>Prerequisites</strong><br />
   Copy the <span class="highlight">icomoon</span> folder from
-  <span class="highlight">{'node_modules/svelte-component-kit/icomoon/style.css'}</span>
-  and place it in your <span class="highlight">static</span> directory.<br /><br />
+  <span class="highlight">{'node_modules/svelte-component-kit/static/icomoon'}</span>
+  , place it in your <span class="highlight">static</span> directory & reference the stylesheet
+  <span class="highlight">icommon/style.css</span>
+  in your code.<br /><br />
 
   <strong>Tip!</strong><br />
   You can upload the <span class="highlight">selection.json</span>-file in the
