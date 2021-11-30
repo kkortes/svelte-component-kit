@@ -57,7 +57,7 @@
   <div class="title">
     <h1>Icon</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Icon.svelte"
+      href="https://github.com/kkortes/svelte-component-kit/blob/master/src/lib/components/Icon.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />

@@ -6,20 +6,21 @@
   const { toggleSidebarOpen } = actions;
 
   const toggleSidebar = ({ target }) => {
-    if (target.classList.contains('navigation')) {
+    // TODO: check this recursively
+    if (target.classList.contains('crow')) {
       toggleSidebarOpen();
     }
   };
 </script>
 
-<Crow horizontal up>
-  <div class="sidebar" style="--flex: 2;" on:click={toggleSidebar} class:open={$store.sidebarOpen}>
+<Crow up style="grid-auto-columns: auto 1fr; grid-auto-rows: 1fr; height: 100%;">
+  <div class="sidebar" on:click={toggleSidebar} class:open={$store.sidebarOpen}>
     <Navigation />
     <div class="minimize-panel">
       <Icon name="right" color="#fff" size={24} />
     </div>
   </div>
-  <div class="main" style="--flex: 10;">
+  <div class="main">
     <slot />
   </div>
 </Crow>
@@ -44,21 +45,22 @@
     transform: rotateY(180deg);
   }
   .sidebar {
+    height: 100%;
     position: relative;
-    min-width: 50px;
-    max-width: 50px;
+    width: 50px;
     overflow: hidden;
-    transition: max-width 0.25s ease, min-width 0.25s ease;
+    transition: width 0.25s ease;
     z-index: 1;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
   .sidebar.open {
-    min-width: 185px;
-    max-width: 185px;
+    width: 185px;
   }
   .main {
     overflow: hidden;
     overflow-y: scroll;
+    height: 100%;
+    width: 100%;
   }
   :global(.title) {
     position: relative;
@@ -72,7 +74,6 @@
   :global(.main > .content) {
     margin: 0 auto;
     max-width: 800px;
-    width: 100%;
     padding: 75px 20px;
   }
   :global(span.highlight) {

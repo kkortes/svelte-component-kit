@@ -22,7 +22,6 @@ body {
   box-sizing: border-box;
   font-family: Verdana, sans-serif;
   background: linear-gradient(to bottom, #ece9e3, #fafafa);
-  display: flex;
   font-size: 16rem;
   line-height: 22px;
   overflow: hidden;
@@ -37,7 +36,7 @@ h6,
 strong {
   color: #000;
   line-height: 36px;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   font-weight: 300;
 }
 
@@ -108,7 +107,7 @@ button:focus {
   background: transparent;
 }
 
-pre[class*="language-"] {
+pre[class*='language-'] {
   border-radius: 3px !important;
   padding: 12px !important;
   font-size: 14px !important;
@@ -136,7 +135,7 @@ td {
 th {
   text-align: left;
   color: #fff;
-  font-family: "Overwatch", sans-serif;
+  font-family: 'Overwatch', sans-serif;
   font-weight: 300;
 }
 thead th {
@@ -149,7 +148,7 @@ tbody td {
   position: relative;
 }
 tbody td:hover:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;

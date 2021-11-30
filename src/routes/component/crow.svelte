@@ -83,7 +83,7 @@
   <div class="title">
     <h1>Crow</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Crow.svelte"
+      href="https://github.com/kkortes/svelte-component-kit/blob/master/src/lib/components/Crow.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />

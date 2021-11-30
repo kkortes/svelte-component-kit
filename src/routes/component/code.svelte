@@ -6,7 +6,7 @@
   <div class="title">
     <h1>Code</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Code.svelte"
+      href="https://github.com/kkortes/svelte-component-kit/blob/master/src/lib/components/Code.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />
@@ -23,12 +23,11 @@
 
 <div class="component">
   <Crow>
-    <div>
-      <Code
-        >{`<div class="title">
+    <Code
+      >{`<div class="title">
   <h1>Code.svelte</h1>
   <a
-    href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Code.svelte"
+    href="https://github.com/kkortes/svelte-component-kit"
     target="_blank"
   >
     <Icon name="github" size={30} />
@@ -45,7 +44,6 @@
 <div class="single">
   <Code>Highlighted</Code>
 </div>`}</Code
-      >
-    </div>
+    >
   </Crow>
 </div>

@@ -41,7 +41,7 @@
   <div class="title">
     <h1>Hexagon</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Hexagon.svelte"
+      href="https://github.com/kkortes/svelte-component-kit/blob/master/src/lib/components/Hexagon.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />

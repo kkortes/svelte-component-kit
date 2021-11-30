@@ -78,7 +78,7 @@
   <div class="title">
     <h1>Tooltip</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Tooltip.svelte"
+      href="https://github.com/kkortes/svelte-component-kit/blob/master/src/lib/components/Tooltip.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />

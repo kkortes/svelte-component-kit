@@ -6,7 +6,7 @@
 </script>
 
 <div class="navigation" class:open={$store.sidebarOpen}>
-  <Crow vertical left>
+  <Crow up vertical left>
     {#each PAGES as { name, url, icon }}
       <div>
         <a class="link" href={url} class:active={$page.path === url}>
