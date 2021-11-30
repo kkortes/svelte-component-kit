@@ -1,11 +1,11 @@
 <script>
-  import Tooltip from "svelte-component-kit/Tooltip.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
-  import Code from "svelte-component-kit/Code.svelte";
-  import InteractiveTable from "$lib/InteractiveTable.svelte";
-  import Table from "$lib/Table.svelte";
-  import { generateStyles, formatProps } from "$lib/js/helpers.js";
-  import Crow from "svelte-component-kit/Crow.svelte";
+  import Tooltip from 'svelte-component-kit/Tooltip.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
+  import Code from 'svelte-component-kit/Code.svelte';
+  import InteractiveTable from '$lib/InteractiveTable.svelte';
+  import Table from '$lib/Table.svelte';
+  import { generateStyles, formatProps } from '$lib/js/helpers.js';
+  import Crow from 'svelte-component-kit/Crow.svelte';
 
   let parent;
   let randomDotStyles;
@@ -13,46 +13,46 @@
 
   let props = [
     {
-      name: "direction",
+      name: 'direction',
       optional: true,
-      defaultValue: "up",
-      type: "string",
-      choices: ["up", "right", "down", "left"],
+      defaultValue: 'up',
+      type: 'string',
+      choices: ['up', 'right', 'down', 'left'],
     },
     {
-      name: "parent",
+      name: 'parent',
       optional: true,
       defaultValue: undefined,
-      type: "[DOM reference]",
+      type: '[DOM reference]',
     },
     {
-      name: "width",
+      name: 'width',
       optional: true,
       defaultValue: 200,
-      type: "integer",
+      type: 'integer',
     },
     {
-      name: "margin",
+      name: 'margin',
       optional: true,
-      defaultValue: "0 0 0 0",
-      type: "string",
-      choices: ["0 0 0 50", "50 50 50 50"],
+      defaultValue: '0 0 0 0',
+      type: 'string',
+      choices: ['0 0 0 50', '50 50 50 50'],
     },
   ];
 
   let demoProps = [
     ...props.map((prop) => {
-      if (prop.name === "margin") {
+      if (prop.name === 'margin') {
         return {
           ...prop,
-          defaultValue: "0 0 0 50",
+          defaultValue: '0 0 0 50',
         };
       }
 
-      if (prop.name === "parent") {
+      if (prop.name === 'parent') {
         return {
           ...prop,
-          defaultValue: "[DOM reference]",
+          defaultValue: '[DOM reference]',
         };
       }
 
@@ -67,13 +67,13 @@
     randomDotStyles = generateStyles({
       left: `${clientX}px`,
       top: `${clientY}px`,
-      position: "fixed",
+      position: 'fixed',
     });
   };
 
   const changeProp = (propName, value) =>
     (demoProps = demoProps.map((prop) =>
-      prop.name === propName ? { ...prop, defaultValue: value } : prop
+      prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
 </script>
 
@@ -81,7 +81,7 @@
   <div class="title">
     <h1>Tooltip</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit/blob/master/Tooltip.svelte"
+      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Tooltip.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />
@@ -91,8 +91,8 @@
   <Table {props} />
 
   <strong>Responsive</strong><br />
-  The parent of the tooltip can be any size and the tooltip renders correctly on
-  any screen orientation!<br /><br />Remember to give the parent element
+  The parent of the tooltip can be any size and the tooltip renders correctly on any screen orientation!<br
+  /><br />Remember to give the parent element
   <span class="highlight">position: relative;</span> and pass it down as the
   <span class="highlight">parent</span>
   prop to get the most out of this component!<br /><br />
@@ -101,22 +101,19 @@
   <strong>Flexible</strong><br />
   Your tooltip can contain anything, not just text.<br /><br />
   <strong>Static version supported</strong><br />
-  If you don't want the tooltip to be reactive to the viewport, simply omit the parent
-  prop and it will work as a normal tooltip.
+  If you don't want the tooltip to be reactive to the viewport, simply omit the parent prop and it will
+  work as a normal tooltip.
 </div>
 
 <div class="component">
   <div class="box floaty" bind:this={randomDotRef} style={randomDotStyles}>
     Hover<br />me!
     <Tooltip
-      {...demoProps.reduce(
-        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-        {}
-      )}
+      {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}
       {parent}
     >
-      This tooltip contains a bunch of information and no matter where it is on
-      the screen it will not clip outside the viewport!<br /><br />
+      This tooltip contains a bunch of information and no matter where it is on the screen it will
+      not clip outside the viewport!<br /><br />
       HOLD SHIFT to<br />move around.
     </Tooltip>
   </div>

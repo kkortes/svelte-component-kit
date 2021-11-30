@@ -1,33 +1,33 @@
 <script>
-  import Code from "svelte-component-kit/Code.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
-  import Hexagon from "svelte-component-kit/Hexagon.svelte";
-  import InteractiveTable from "$lib/InteractiveTable.svelte";
-  import Table from "$lib/Table.svelte";
-  import { formatProps } from "$lib/js/helpers.js";
-  import Crow from "svelte-component-kit/Crow.svelte";
+  import Code from 'svelte-component-kit/Code.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
+  import Hexagon from 'svelte-component-kit/Hexagon.svelte';
+  import InteractiveTable from '$lib/InteractiveTable.svelte';
+  import Table from '$lib/Table.svelte';
+  import { formatProps } from '$lib/js/helpers.js';
+  import Crow from 'svelte-component-kit/Crow.svelte';
 
   let props = [
     {
-      name: "color",
+      name: 'color',
       optional: true,
-      defaultValue: "lightgray",
-      type: "hexstring",
+      defaultValue: 'lightgray',
+      type: 'hexstring',
     },
     {
-      name: "size",
+      name: 'size',
       optional: true,
       defaultValue: 100,
-      type: "integer",
+      type: 'integer',
     },
   ];
 
   let demoProps = [
     ...props.map((prop) => {
-      if (prop.name === "color") {
+      if (prop.name === 'color') {
         return {
           ...prop,
-          defaultValue: "#40464c",
+          defaultValue: '#40464c',
         };
       }
       return prop;
@@ -36,7 +36,7 @@
 
   const changeProp = (propName, value) =>
     (demoProps = demoProps.map((prop) =>
-      prop.name === propName ? { ...prop, defaultValue: value } : prop
+      prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
 </script>
 
@@ -44,7 +44,7 @@
   <div class="title">
     <h1>Hexagon</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit/blob/master/Hexagon.svelte"
+      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Hexagon.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />
@@ -58,10 +58,7 @@
   <Crow>
     <div>
       <Hexagon
-        {...demoProps.reduce(
-          (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-          {}
-        )}
+        {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}
       >
         <Icon name="logo-svelte" size={60} />
       </Hexagon>

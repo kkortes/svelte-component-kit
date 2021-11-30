@@ -1,71 +1,71 @@
 <script>
-  import { formatProps } from "$lib/js/helpers";
-  import Crow from "svelte-component-kit/Crow.svelte";
-  import Code from "svelte-component-kit/Code.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
-  import InteractiveTable from "$lib/InteractiveTable.svelte";
-  import Table from "$lib/Table.svelte";
+  import { formatProps } from '$lib/js/helpers';
+  import Crow from 'svelte-component-kit/Crow.svelte';
+  import Code from 'svelte-component-kit/Code.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
+  import InteractiveTable from '$lib/InteractiveTable.svelte';
+  import Table from '$lib/Table.svelte';
 
   let props = [
     {
-      name: "gutter",
+      name: 'gutter',
       optional: true,
       defaultValue: 0,
-      type: "integer",
+      type: 'integer',
     },
     {
-      name: "horizontal",
+      name: 'horizontal',
       optional: true,
       defaultValue: true,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "vertical",
+      name: 'vertical',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "fly",
+      name: 'fly',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "up",
+      name: 'up',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "right",
+      name: 'right',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "down",
+      name: 'down',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "left",
+      name: 'left',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
     {
-      name: "debug",
+      name: 'debug',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
   ];
 
   let demoProps = [
     ...props.map((prop) => {
-      if (prop.name === "debug") {
+      if (prop.name === 'debug') {
         return {
           ...prop,
           defaultValue: true,
@@ -77,7 +77,7 @@
 
   const changeProp = (propName, value) =>
     (demoProps = demoProps.map((prop) =>
-      prop.name === propName ? { ...prop, defaultValue: value } : prop
+      prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
 </script>
 
@@ -85,7 +85,7 @@
   <div class="title">
     <h1>Crow</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit/blob/master/Crow.svelte"
+      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Crow.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />
@@ -94,23 +94,18 @@
 
   <Table {props} />
 
-  <span class="highlight">{"<Crow />"}</span> is short for column-row. With it
-  you can create lists, grids and full page layouts.<br /><br />
+  <span class="highlight">{'<Crow />'}</span> is short for column-row. With it you can create lists,
+  grids and full page layouts.<br /><br />
   This component was ported to Svelte from my
   <a href="http://getcrow.eu" target="_blank">Crow framework</a>.<br /><br />
   If you want to implicitly set the flex of children of a
-  <span class="highlight">{"<Crow />"}</span> element you should set their
+  <span class="highlight">{'<Crow />'}</span> element you should set their
   <span class="highlight">style</span>
   using <span class="highlight">--flex: 1;</span> variable.
 </div>
 
 <div class="component">
-  <Crow
-    {...demoProps.reduce(
-      (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-      {}
-    )}
-  >
+  <Crow {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}>
     <div>
       <div class="inner" style="background: lightgreen;">Green</div>
     </div>

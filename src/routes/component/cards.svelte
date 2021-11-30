@@ -1,30 +1,30 @@
 <script>
-  import Table from "$lib/Table.svelte";
-  import Cards from "svelte-component-kit/Cards.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
-  import Code from "svelte-component-kit/Code.svelte";
-  import InteractiveTable from "$lib/InteractiveTable.svelte";
-  import { formatProps } from "$lib/js/helpers";
-  import Crow from "svelte-component-kit/Crow.svelte";
+  import Table from '$lib/Table.svelte';
+  import Cards from 'svelte-component-kit/Cards.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
+  import Code from 'svelte-component-kit/Code.svelte';
+  import InteractiveTable from '$lib/InteractiveTable.svelte';
+  import { formatProps } from '$lib/js/helpers';
+  import Crow from 'svelte-component-kit/Crow.svelte';
 
   let props = [
     {
-      name: "spread",
+      name: 'spread',
       optional: true,
       defaultValue: 0.25,
-      type: "float",
+      type: 'float',
     },
     {
-      name: "distance",
+      name: 'distance',
       optional: true,
       defaultValue: 150,
-      type: "integer",
+      type: 'integer',
     },
     {
-      name: "flipped",
+      name: 'flipped',
       optional: true,
       defaultValue: false,
-      type: "boolean",
+      type: 'boolean',
     },
   ];
 
@@ -32,7 +32,7 @@
 
   const changeProp = (propName, value) =>
     (demoProps = demoProps.map((prop) =>
-      prop.name === propName ? { ...prop, defaultValue: value } : prop
+      prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
 </script>
 
@@ -40,7 +40,7 @@
   <div class="title">
     <h1>Cards</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit/blob/master/Cards.svelte"
+      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Cards.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />
@@ -49,11 +49,11 @@
 
   <Table {props} />
 
-  This component renders a "card hand" which can be customized in various ways
-  and it's reactive to how many cards are being rendered.<br /><br />
-  Due to limitations of svelte <span class="highlight">{"<slot />"}</span> I
-  highly suggest you copy the code over from the component file itself and add
-  your own business logic directly into the file.<br /><br />
+  This component renders a "card hand" which can be customized in various ways and it's reactive to
+  how many cards are being rendered.<br /><br />
+  Due to limitations of svelte <span class="highlight">{'<slot />'}</span> I highly suggest you copy
+  the code over from the component file itself and add your own business logic directly into the
+  file.<br /><br />
   In order to prevent a stack of shadows, the card hand hides all cards but one whenever
   <span class="highlight">spread</span> is equal to 0.
 </div>
@@ -61,10 +61,7 @@
 <div class="component">
   <Crow>
     <Cards
-      {...demoProps.reduce(
-        (a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }),
-        {}
-      )}
+      {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}
     />
   </Crow>
 </div>

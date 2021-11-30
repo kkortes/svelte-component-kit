@@ -1,14 +1,14 @@
 <script>
-  import Code from "svelte-component-kit/Code.svelte";
-  import Crow from "svelte-component-kit/Crow.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
+  import Code from 'svelte-component-kit/Code.svelte';
+  import Crow from 'svelte-component-kit/Crow.svelte';
+  import Icon from 'svelte-component-kit/Icon.svelte';
 </script>
 
 <div class="content">
   <div class="title">
     <h1>Code</h1>
     <a
-      href="https://github.com/kkortes/svelte-component-kit/blob/master/Code.svelte"
+      href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Code.svelte"
       target="_blank"
     >
       <Icon name="github" size={30} />
@@ -19,7 +19,7 @@
 
   <strong>Prerequisites</strong><br />
   Grab one of the CSS-files from:
-  <span class="highlight">{"node_modules/prismjs/themes/*.css"}</span>
+  <span class="highlight">{'node_modules/prismjs/themes/*.css'}</span>
   and include it in your app.
 </div>
 
@@ -30,7 +30,7 @@
         >{`<div class="title">
   <h1>Code.svelte</h1>
   <a
-    href="https://github.com/kkortes/svelte-component-kit/blob/master/Code.svelte"
+    href="https://github.com/kkortes/svelte-component-kit-presentation/blob/master/src/lib/components/Code.svelte"
     target="_blank"
   >
     <Icon name="github" size={30} />
