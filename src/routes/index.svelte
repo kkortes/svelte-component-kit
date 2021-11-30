@@ -1,5 +1,5 @@
 <script>
-  import Icon from "svelte-component-kit/Icon.svelte";
+  import { Icon } from 'svelte-component-kit';
 </script>
 
 <div class="content">
@@ -11,7 +11,8 @@
   </div>
 
   This website showcases my
-  <span class="highlight">svelte-component-kit</span>-repo on github.<br /><br
+  <span class="highlight">svelte-component-kit</span>-package on
+  <a href="https://www.npmjs.com/package/svelte-component-kit" target="_blank">npm.js</a>.<br /><br
   />
   I'll be adding components to this kit over time.<br /><br />
   The goal is to provide clean and easy-to-use components.<br /><br />

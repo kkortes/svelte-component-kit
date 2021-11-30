@@ -1,25 +1,19 @@
 <script>
-  import { store, actions } from "$lib/js/store";
-  import Navigation from "$lib/Navigation.svelte";
-  import Crow from "svelte-component-kit/Crow.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
+  import { Crow, Icon } from 'svelte-component-kit';
+  import { store, actions } from '$lib/js/store';
+  import Navigation from '$lib/Navigation.svelte';
 
   const { toggleSidebarOpen } = actions;
 
   const toggleSidebar = ({ target }) => {
-    if (target.classList.contains("navigation")) {
+    if (target.classList.contains('navigation')) {
       toggleSidebarOpen();
     }
   };
 </script>
 
 <Crow horizontal up>
-  <div
-    class="sidebar"
-    style="--flex: 2;"
-    on:click={toggleSidebar}
-    class:open={$store.sidebarOpen}
-  >
+  <div class="sidebar" style="--flex: 2;" on:click={toggleSidebar} class:open={$store.sidebarOpen}>
     <Navigation />
     <div class="minimize-panel">
       <Icon name="right" color="#fff" size={24} />
@@ -82,7 +76,7 @@
     padding: 75px 20px;
   }
   :global(span.highlight) {
-    font-family: "Arial", serif;
+    font-family: 'Arial', serif;
     letter-spacing: 1px;
     background: #fafafa;
     padding: 0 4px;

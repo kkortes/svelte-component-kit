@@ -1,7 +1,5 @@
 <script>
-  import Code from 'svelte-component-kit/Code.svelte';
-  import Crow from 'svelte-component-kit/Crow.svelte';
-  import Icon from 'svelte-component-kit/Icon.svelte';
+  import { Code, Crow, Icon } from 'svelte-component-kit';
 </script>
 
 <div class="content">

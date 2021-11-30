@@ -1,8 +1,6 @@
 <script>
+  import { Crow, Code, Icon } from 'svelte-component-kit';
   import { formatProps } from '$lib/js/helpers';
-  import Crow from 'svelte-component-kit/Crow.svelte';
-  import Code from 'svelte-component-kit/Code.svelte';
-  import Icon from 'svelte-component-kit/Icon.svelte';
   import InteractiveTable from '$lib/InteractiveTable.svelte';
   import Table from '$lib/Table.svelte';
 

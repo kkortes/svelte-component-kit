@@ -1,9 +1,8 @@
 <script>
-  import { page } from "$app/stores";
-  import { store } from "$lib/js/store";
-  import Crow from "svelte-component-kit/Crow.svelte";
-  import Icon from "svelte-component-kit/Icon.svelte";
-  import PAGES from "$lib/consts/PAGES";
+  import { page } from '$app/stores';
+  import { store } from '$lib/js/store';
+  import { Crow, Icon } from 'svelte-component-kit';
+  import PAGES from '$lib/consts/PAGES';
 </script>
 
 <div class="navigation" class:open={$store.sidebarOpen}>
@@ -13,8 +12,8 @@
         <a class="link" href={url} class:active={$page.path === url}>
           <Icon
             name={icon}
-            size={icon === "logo-svelte" ? 30 : 20}
-            color={icon === "logo-svelte" ? '' : '#cbd0d4'}
+            size={icon === 'logo-svelte' ? 30 : 20}
+            color={icon === 'logo-svelte' ? '' : '#cbd0d4'}
           /><span class="name">{name}</span>
         </a>
       </div>

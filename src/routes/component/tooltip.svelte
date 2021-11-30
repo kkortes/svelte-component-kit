@@ -1,11 +1,8 @@
 <script>
-  import Tooltip from 'svelte-component-kit/Tooltip.svelte';
-  import Icon from 'svelte-component-kit/Icon.svelte';
-  import Code from 'svelte-component-kit/Code.svelte';
+  import { Tooltip, Icon, Code, Crow } from 'svelte-component-kit';
   import InteractiveTable from '$lib/InteractiveTable.svelte';
   import Table from '$lib/Table.svelte';
   import { generateStyles, formatProps } from '$lib/js/helpers.js';
-  import Crow from 'svelte-component-kit/Crow.svelte';
 
   let parent;
   let randomDotStyles;
