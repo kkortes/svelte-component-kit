@@ -1,6 +1,6 @@
 {
 	"name": "svelte-component-kit",
-	"version": "1.2.5",
+	"version": "1.2.7",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -25,5 +25,8 @@
 		"node": "14.16.0",
 		"npm": "7.20.3"
 	},
-	"type": "module"
+	"type": "module",
+  "exports": {
+    ".": "./components/index.js"
+  }
 }
