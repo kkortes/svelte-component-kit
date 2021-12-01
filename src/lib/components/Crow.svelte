@@ -6,7 +6,7 @@
   export let right = false;
   export let left = false;
   export let down = false;
-  export let size = 'auto';
+  export let fit = undefined;
 
   let { class: classes, style, ...props } = $$restProps;
 </script>
@@ -16,15 +16,16 @@
   class={['crow', classes].filter((v) => v).join(' ')}
   class:vertical
   class:horizontal={!vertical}
+  class:fit
   class:fly
   class:up
   class:right
   class:down
   class:left
-  {...(style || gutter || size !== 'auto') && {
-    style: `${style || ''}${gutter ? `gap: ${gutter * 2}px;` : ''}--size:${
-      typeof size === 'number' ? `${size}px` : size
-    };`,
+  {...(style || gutter || fit) && {
+    style: `${style || ''}${gutter ? `gap: ${gutter * 2}px;` : ''}${
+      fit ? `--fit:${typeof fit === 'number' ? `${fit}px` : fit};` : ''
+    }`,
   }}
 >
   <slot />
@@ -39,12 +40,6 @@
     justify-content: center;
     align-items: center;
     justify-items: center;
-  }
-  .vertical.fly {
-    align-content: stretch;
-  }
-  .horizontal.fly {
-    justify-content: stretch;
   }
   .up {
     align-items: start;
@@ -63,11 +58,23 @@
     justify-items: start;
   }
   .vertical {
-    grid-auto-flow: column;
-    grid-template-rows: repeat(auto-fit, minmax(0, var(--size, auto)));
+    grid-auto-flow: row;
   }
   .horizontal {
+    grid-auto-flow: column;
+  }
+  .vertical.fit {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(auto-fit, minmax(0, var(--fit, auto)));
+  }
+  .horizontal.fit {
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fit, minmax(0, var(--size, auto)));
+    grid-template-columns: repeat(auto-fit, minmax(0, var(--fit, auto)));
+  }
+  .vertical.fly {
+    grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+  }
+  .horizontal.fly {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   }
 </style>

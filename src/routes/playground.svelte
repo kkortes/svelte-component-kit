@@ -3,7 +3,7 @@
 
   let height = 100;
   let width = 100;
-  let children = 0;
+  let children = 1;
 
   $: items = new Array(children).fill(1).map((_, i) => i);
 </script>
@@ -16,7 +16,7 @@
   </div>
 
   <div class="box">
-    <Crow gutter={4} size={100}>
+    <Crow gutter={4} fit={100} fly>
       <div class="item" style="height: {height}px; width: {width}px;">First</div>
       {#each items as item}
         <div class="item">
@@ -39,8 +39,8 @@
     padding: 0;
   }
   .box {
-    width: 500px;
-    min-height: 500px;
+    min-width: 500px;
+    height: 500px;
     background: lightgray;
   }
   .item {
