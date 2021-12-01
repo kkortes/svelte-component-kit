@@ -13,7 +13,7 @@
   };
 </script>
 
-<Crow up style="grid-auto-columns: auto 1fr; grid-auto-rows: 1fr; height: 100%;">
+<Crow up style="grid-template-columns: auto 1fr; grid-auto-rows: 1fr;  height: 100%;">
   <div class="sidebar" on:click={toggleSidebar} class:open={$store.sidebarOpen}>
     <Navigation />
     <div class="minimize-panel">

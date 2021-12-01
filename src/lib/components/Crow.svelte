@@ -6,6 +6,7 @@
   export let right = false;
   export let left = false;
   export let down = false;
+  export let size = 'auto';
 
   let { class: classes, style, ...props } = $$restProps;
 </script>
@@ -20,8 +21,10 @@
   class:right
   class:down
   class:left
-  {...(style || gutter) && {
-    style: `${style || ''}${gutter ? `gap: ${gutter}px;` : ''}`,
+  {...(style || gutter || size !== 'auto') && {
+    style: `${style || ''}${gutter ? `gap: ${gutter * 2}px;` : ''}--size:${
+      typeof size === 'number' ? `${size}px` : size
+    };`,
   }}
 >
   <slot />
@@ -30,7 +33,7 @@
 <style>
   .crow {
     display: grid;
-    min-height: 100%;
+    height: 100%;
     min-width: 100%;
     align-content: center;
     justify-content: center;
@@ -60,11 +63,11 @@
     justify-items: start;
   }
   .vertical {
-    grid-auto-flow: row;
-    justify-content: stretch;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(auto-fit, minmax(0, var(--size, auto)));
   }
   .horizontal {
-    grid-auto-flow: column;
-    align-content: stretch;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(0, var(--size, auto)));
   }
 </style>
