@@ -16,13 +16,11 @@
   </div>
 
   <div class="box">
-    <Crow gutter={4} fit={100} fly>
+    <Crow gutter={4}>
       <div class="item" style="height: {height}px; width: {width}px;">First</div>
       {#each items as item}
         <div class="item">
-          <div>
-            {item}
-          </div>
+          {item}
         </div>
       {/each}
     </Crow>

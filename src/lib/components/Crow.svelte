@@ -34,7 +34,7 @@
 <style>
   .crow {
     display: grid;
-    height: 100%;
+    min-height: 100%;
     min-width: 100%;
     align-content: center;
     justify-content: center;
@@ -57,11 +57,13 @@
     justify-content: start;
     justify-items: start;
   }
-  .vertical {
+  .vertical:not(.fit) {
     grid-auto-flow: row;
+    justify-content: stretch;
   }
-  .horizontal {
+  .horizontal:not(.fit) {
     grid-auto-flow: column;
+    align-content: stretch;
   }
   .vertical.fit {
     grid-auto-flow: column;
