@@ -1,5 +1,5 @@
 <script>
-  export let gutter = 0;
+  export let gutter = undefined;
   export let vertical = false;
   export let fly = false;
   export let up = false;
@@ -22,7 +22,7 @@
   class:right
   class:down
   class:left
-  {...(style || gutter || fit) && {
+  {...(style || typeof gutter === 'number' || typeof fit === 'number') && {
     style: `${style || ''}${gutter ? `gap: ${gutter * 2}px;` : ''}${
       fit ? `--fit:${typeof fit === 'number' ? `${fit}px` : fit};` : ''
     }`,

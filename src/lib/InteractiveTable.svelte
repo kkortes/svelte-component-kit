@@ -17,66 +17,64 @@
         <td>{name}</td>
         <td>{defaultValue}</td>
         <td style="text-align: center;">
-          {#if type === "integer"}
+          {#if type === 'integer'}
             <input
               type="range"
               value={defaultValue}
-              style="padding: 0; width: 100px;"
+              min="0"
               max="300"
-              on:input={(e) => changeProp(name, parseInt(e.target.value))}
+              step="10"
+              on:input={({ target: { value } }) => changeProp(name, parseInt(value, 10))}
             />
-          {:else if type === "boolean"}
+          {:else if type === 'boolean'}
             <label>
               <input
                 type="checkbox"
                 checked={defaultValue}
                 on:input={(e) => {
                   let value = e.target.checked;
-                  if (name === "horizontal") {
-                    changeProp("vertical", !value);
+                  if (name === 'horizontal') {
+                    changeProp('vertical', !value);
                   }
-                  if (name === "vertical") {
-                    changeProp("horizontal", !value);
+                  if (name === 'vertical') {
+                    changeProp('horizontal', !value);
                   }
                   changeProp(name, value);
                 }}
               />
             </label>
-          {:else if type === "hexstring"}
-            <input
-              type="color"
-              on:input={(e) => changeProp(name, e.target.value)}
-              style="width: 100px;"
-            />
-          {:else if type === "[DOM reference]"}
+          {:else if type === 'hexstring'}
+            <input type="color" on:input={(e) => changeProp(name, e.target.value)} />
+          {:else if type === '[DOM reference]'}
             [DOM reference]
-          {:else if type === "float"}
+          {:else if type === 'float'}
             <input
               type="range"
               value={defaultValue}
-              style="padding: 0; width: 100px;"
               max="1"
               step="0.01"
               on:input={(e) => changeProp(name, parseFloat(e.target.value))}
             />
           {:else if choices}
-            <select
-              on:change={(e) => changeProp(name, e.target.value)}
-              style="width: 100px;"
-            >
+            <select on:change={(e) => changeProp(name, e.target.value)} style="width: 100px;">
               {#each choices as choice}
                 <option value={choice}>{choice}</option>
               {/each}
             </select>
           {:else}
-            <input
-              type="text"
-              style="width: 100px;"
-              on:input={(e) => changeProp(name, e.target.value)}
-            />
+            <input type="text" on:input={(e) => changeProp(name, e.target.value)} />
           {/if}
         </td>
       </tr>
     </tbody>
   {/each}
 </table>
+
+<style>
+  input {
+    width: 100px;
+  }
+  input[type='range'] {
+    padding: 0px;
+  }
+</style>

@@ -30,6 +30,12 @@
       type: 'boolean',
     },
     {
+      name: 'fit',
+      optional: true,
+      defaultValue: 0,
+      type: 'integer',
+    },
+    {
       name: 'up',
       optional: true,
       defaultValue: false,
@@ -61,6 +67,10 @@
     (demoProps = demoProps.map((prop) =>
       prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
+
+  let children = 4;
+
+  $: items = new Array(children).fill(children).map((_, i) => i);
 </script>
 
 <div class="content">
@@ -79,51 +89,47 @@
   <span class="highlight">{'<Crow />'}</span> is short for column-row. With it you can create lists,
   grids and full page layouts.<br /><br />
   This component was ported to Svelte from my
-  <a href="http://getcrow.eu" target="_blank">Crow framework</a>.<br /><br />
-  If you want to implicitly set the flex of children of a
-  <span class="highlight">{'<Crow />'}</span> element you should set their
-  <span class="highlight">style</span>
-  using <span class="highlight">--flex: 1;</span> variable.
+  <a href="http://getcrow.eu" target="_blank">Crow framework</a>.
 </div>
 
 <div class="component">
   <Crow {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}>
-    <div>
-      <div class="inner" style="background: lightgreen;">Green</div>
-    </div>
-    <div>
-      <div class="inner" style="background: lightgray;">Red</div>
-    </div>
-    <div>
-      <div class="inner" style="background: pink;">Pink</div>
-    </div>
-    <div>
-      <div class="inner" style="background: lightblue;">Blue</div>
-    </div>
+    {#each items as item, i}
+      <div class="inner" style={`background: hsl(${i * 10}, 100%, 35%);`}>{i + 1}</div>
+    {/each}
   </Crow>
 </div>
 
 <div class="panel">
   <Crow gutter={20}>
-    <div>
+    <Crow vertical>
+      <input type="range" min="4" max="40" bind:value={children} />
       <InteractiveTable {demoProps} {changeProp} />
-    </div>
-    <div>
-      <Code>
-        {`<Crow
+    </Crow>
+    <Code>
+      {`<Crow
 ${formatProps(demoProps)}>
   <div>Green</div>
   <div>Red</div>
   <div>Pink</div>
   <div>Blue</div>
 </Crow>`}
-      </Code>
-    </div>
+    </Code>
   </Crow>
 </div>
 
 <style>
   .inner {
-    padding: 8px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    aspect-ratio: 1;
+    color: #fff;
+    font-size: 30px;
+  }
+  input[type='range'] {
+    padding: 0;
+    width: 100%;
   }
 </style>
