@@ -1,4 +1,17 @@
 <script>
+  const styles = (styles, style = '') => {
+    const combined = ((styles, style) => ({
+      style: `${Object.entries(styles)
+        .reduce(
+          (a, [property, value]) =>
+            ![false, undefined].includes(value) ? [...a, `${property}: ${value};`] : a,
+          [],
+        )
+        .join(' ')}${style}`,
+    }))(styles, style);
+    return combined?.style ? combined : {};
+  };
+
   export let gutter = undefined;
   export let vertical = false;
   export let fly = false;
@@ -22,11 +35,17 @@
   class:right
   class:down
   class:left
-  {...(style || typeof gutter === 'number' || typeof fit === 'number') && {
-    style: `${style || ''}${gutter ? `gap: ${gutter * 2}px;` : ''}${
-      fit ? `--fit:${typeof fit === 'number' ? `${fit}px` : fit};` : ''
-    }`,
-  }}
+  {...styles(
+    {
+      gap: typeof gutter === 'number' && `${gutter * 2}px`,
+      ['--fit']:
+        typeof fit !== 'undefined' &&
+        `calc(${typeof fit === 'number' ? `${fit}px` : fit}${
+          typeof gutter === 'number' ? ` - ${gutter * 2}px` : ''
+        })`,
+    },
+    style,
+  )}
 >
   <slot />
 </div>

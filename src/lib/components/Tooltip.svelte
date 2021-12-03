@@ -1,8 +1,16 @@
 <script>
-  const generateStyles = (styles) =>
-    Object.entries(styles)
-      .reduce((a, [property, value]) => [...a, `${property}: ${value};`], [])
-      .join(' ');
+  const styles = (styles, style = '') => {
+    const combined = ((styles, style) => ({
+      style: `${Object.entries(styles)
+        .reduce(
+          (a, [property, value]) =>
+            ![false, undefined].includes(value) ? [...a, `${property}: ${value};`] : a,
+          [],
+        )
+        .join(' ')}${style}`,
+    }))(styles, style);
+    return combined?.style ? combined : {};
+  };
 
   export let direction = 'up';
   export let parent = undefined;
@@ -15,8 +23,8 @@
   let horizontalBleed;
   let verticalBleed;
 
-  tooltipStyles = generateStyles({
-    width: `${width}px`,
+  tooltipStyles = styles({
+    width: width && `${width}px`,
   });
 
   $: [marginTop, marginRight, marginBottom, marginLeft] = margin
@@ -68,7 +76,7 @@
       const verticalOffset = `calc(${vertical ? 100 : 50}% + ${verticalBleed * dirY}px)`;
       const horizontalOffset = `calc(${vertical ? 50 : 100}% + ${horizontalBleed * dirX}px)`;
 
-      tooltipStyles = generateStyles({
+      tooltipStyles = styles({
         top: dirY < 0 ? verticalOffset : 'auto',
         right: dirX > 0 ? horizontalOffset : 'auto',
         bottom: dirY > 0 ? verticalOffset : 'auto',
@@ -79,7 +87,7 @@
 
       const offset = `calc(50% + ${vertical ? horizontalBleed : verticalBleed}px)`;
 
-      triangleStyles = generateStyles({
+      triangleStyles = styles({
         top: !vertical ? offset : dirY < 0 ? 0 : 'auto',
         right: dirX > 0 ? 0 : 'auto',
         bottom: dirY > 0 ? 0 : 'auto',
@@ -90,8 +98,8 @@
   }
 </script>
 
-<div class={`tooltip ${direction}`} style={tooltipStyles}>
-  <div class="triangle" style={triangleStyles} />
+<div class={`tooltip ${direction}`} {...tooltipStyles}>
+  <div class="triangle" {...triangleStyles} />
   <div class="inner" bind:this={tooltipRef}>
     <slot />
   </div>

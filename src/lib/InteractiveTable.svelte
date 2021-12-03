@@ -21,10 +21,10 @@
             <input
               type="range"
               value={defaultValue}
-              min="0"
+              min="-1"
               max="300"
-              step="10"
-              on:input={({ target: { value } }) => changeProp(name, parseInt(value, 10))}
+              on:input={({ target: { value } }) =>
+                changeProp(name, parseInt(value, 10) >= 0 ? parseInt(value, 10) : undefined)}
             />
           {:else if type === 'boolean'}
             <label>

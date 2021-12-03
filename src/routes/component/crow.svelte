@@ -8,7 +8,7 @@
     {
       name: 'gutter',
       optional: true,
-      defaultValue: 0,
+      defaultValue: undefined,
       type: 'integer',
     },
     {
@@ -32,7 +32,7 @@
     {
       name: 'fit',
       optional: true,
-      defaultValue: 0,
+      defaultValue: undefined,
       type: 'integer',
     },
     {
@@ -68,7 +68,7 @@
       prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
 
-  let children = 4;
+  let children = 2;
 
   $: items = new Array(children).fill(children).map((_, i) => i);
 </script>
@@ -103,7 +103,7 @@
 <div class="panel">
   <Crow gutter={20}>
     <Crow vertical>
-      <input type="range" min="4" max="40" bind:value={children} />
+      <input type="range" min="1" max="40" bind:value={children} />
       <InteractiveTable {demoProps} {changeProp} />
     </Crow>
     <Code>
