@@ -41,7 +41,7 @@
       ['--fit']:
         typeof fit !== 'undefined' &&
         `calc(${typeof fit === 'number' ? `${fit}px` : fit}${
-          typeof gutter === 'number' ? ` - ${gutter * 2}px` : ''
+          typeof gutter === 'number' ? ` - ${gutter}px` : ''
         })`,
     },
     style,
