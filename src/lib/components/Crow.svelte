@@ -39,10 +39,7 @@
     {
       gap: typeof gutter === 'number' && `${gutter * 2}px`,
       ['--fit']:
-        typeof fit !== 'undefined' &&
-        `calc(${typeof fit === 'number' ? `${fit}px` : fit}${
-          typeof gutter === 'number' ? ` - ${gutter}px` : ''
-        })`,
+        typeof fit !== 'undefined' && `calc(${typeof fit === 'number' ? `${fit}px` : fit})`,
     },
     style,
   )}

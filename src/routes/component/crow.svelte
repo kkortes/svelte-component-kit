@@ -68,7 +68,7 @@
       prop.name === propName ? { ...prop, defaultValue: value } : prop,
     ));
 
-  let children = 2;
+  let children = 5;
 
   $: items = new Array(children).fill(children).map((_, i) => i);
 </script>
@@ -93,9 +93,14 @@
 </div>
 
 <div class="component">
-  <Crow {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}>
+  <Crow
+    left
+    {...demoProps.reduce((a, { name, defaultValue }) => ({ ...a, [name]: defaultValue }), {})}
+  >
     {#each items as item, i}
-      <div class="inner" style={`background: hsl(${i * 10}, 100%, 35%);`}>{i + 1}</div>
+      <div class="inner" style={`background: hsl(${i * 10}, 100%, 35%);`}>
+        {i + 1}
+      </div>
     {/each}
   </Crow>
 </div>
@@ -123,7 +128,7 @@ ${formatProps(demoProps)}>
     display: grid;
     justify-content: center;
     align-items: center;
-    width: 100px;
+    width: 200px;
     aspect-ratio: 1;
     color: #fff;
     font-size: 30px;
