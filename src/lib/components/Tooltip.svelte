@@ -98,7 +98,7 @@
   }
 </script>
 
-<div class={`tooltip ${direction}`} {...tooltipStyles}>
+<div class="tooltip {direction}" {...tooltipStyles}>
   <div class="triangle" {...triangleStyles} />
   <div class="inner" bind:this={tooltipRef}>
     <slot />

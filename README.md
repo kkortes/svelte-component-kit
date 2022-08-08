@@ -3,3 +3,8 @@
 Clean and easy-to-use svelte components.
 
 I'll be adding components to this kit over time.
+
+## Publish to npm
+
+`npm run package`
+`npm publish ./package`

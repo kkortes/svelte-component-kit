@@ -4,12 +4,9 @@
   export let shadow = 'transparent';
 </script>
 
-<div
-  class="hexagon"
-  style={`width:${size ? `${size}px` : 'auto'}; aspect-ratio: ${Math.sqrt(3)} / 2;`}
->
-  <div class="shape shadow" style={`--bg-color: ${shadow};`} />
-  <div class="shape" style={`--bg-color: ${color};`} />
+<div class="hexagon" style="width:{size ? `${size}px` : 'auto'}; aspect-ratio: {Math.sqrt(3)} / 2;">
+  <div class="shape shadow" style="--bg-color: {shadow};" />
+  <div class="shape" style="--bg-color: {color};" />
   <div class="content">
     <slot />
   </div>

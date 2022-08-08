@@ -23,17 +23,17 @@
 
 <div
   class="cards"
-  style={`transform: translateY(${distance}px) rotate(-${(rotation * (cards.length - 1)) / 2}deg);`}
+  style="transform: translateY({distance}px) rotate(-{(rotation * (cards.length - 1)) / 2}deg);"
 >
   {#each cards as card, i}
     <div
       class="card"
       class:flipped
-      style={`${rotateCard(i)} ${i !== cards.length - 1 && spread === 0 ? 'display: none;' : ''}`}
+      style="{rotateCard(i)} {i !== cards.length - 1 && spread === 0 ? 'display: none;' : ''}"
     >
       <div class="faces">
         <div class="back">Back</div>
-        <div class="front" style={`background-image: url(${card})`} />
+        <div class="front" style="background-image: url({card})" />
       </div>
     </div>
   {/each}
