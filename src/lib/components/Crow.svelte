@@ -57,6 +57,9 @@
     align-items: center;
     justify-items: center;
   }
+  .vertical {
+    min-height: 0; /* allows Safari to generate new rows when using "fit" and "vertical"  */
+  }
   .up {
     align-items: start;
     align-content: start;
