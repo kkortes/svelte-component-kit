@@ -64,15 +64,11 @@
 </div>
 
 <div class="panel">
-  <Crow gutter={20}>
-    <div>
-      <InteractiveTable {demoProps} {changeProp} />
-    </div>
-    <div>
-      <Code>
-        {`<Cards
+  <Crow gap={20}>
+    <InteractiveTable {demoProps} {changeProp} />
+    <Code>
+      {`<Cards
 ${formatProps(demoProps)} />`}
-      </Code>
-    </div>
+    </Code>
   </Crow>
 </div>

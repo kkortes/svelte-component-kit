@@ -15,12 +15,12 @@
     <tbody>
       <tr>
         <td>{name}</td>
-        <td>{defaultValue}</td>
+        <td style="min-width: 100px;">{defaultValue}</td>
         <td style="text-align: center;">
           {#if type === 'integer'}
             <input
               type="range"
-              value={defaultValue}
+              value={defaultValue || 0}
               min="-1"
               max="300"
               on:input={({ target: { value } }) =>
@@ -50,7 +50,7 @@
           {:else if type === 'float'}
             <input
               type="range"
-              value={defaultValue}
+              value={defaultValue || 0}
               max="1"
               step="0.01"
               on:input={(e) => changeProp(name, parseFloat(e.target.value))}

@@ -6,7 +6,7 @@
 
   let props = [
     {
-      name: 'gutter',
+      name: 'gap',
       optional: true,
       defaultValue: undefined,
       type: 'integer',
@@ -28,12 +28,6 @@
       optional: true,
       defaultValue: false,
       type: 'boolean',
-    },
-    {
-      name: 'fit',
-      optional: true,
-      defaultValue: undefined,
-      type: 'integer',
     },
     {
       name: 'up',
@@ -88,8 +82,15 @@
 
   <span class="highlight">{'<Crow />'}</span> is short for column-row. With it you can create lists,
   grids and full page layouts.<br /><br />
-  This component was ported to Svelte from my
+  This component was ported to Svelte from
   <a href="http://getcrow.eu" target="_blank">Crow framework</a>.
+  <br /><br />
+  In order to allow a parent to grow with an undeterministic amount of children make sure to use
+  <span class="highlight">{'min-height'}</span>
+  along with <span class="highlight">{'display: grid;'}</span> &
+  <span class="highlight">{'place-items: center;'}</span><br /><br />
+
+  Grid parents behave differently (and better!) than flex parents.
 </div>
 
 <div class="component">
@@ -106,7 +107,7 @@
 </div>
 
 <div class="panel">
-  <Crow gutter={20}>
+  <Crow gap={20}>
     <Crow vertical>
       <input type="range" min="1" max="40" bind:value={children} />
       <InteractiveTable {demoProps} {changeProp} />

@@ -31,12 +31,8 @@
 
 <style>
   table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.75);
     margin: 10px 0 30px 0;
+    width: 100%;
   }
   th,
   td {
@@ -47,7 +43,7 @@
   th {
     text-align: left;
     color: #fff;
-    font-family: "Overwatch", sans-serif;
+    font-family: 'Overwatch', sans-serif;
     font-weight: 300;
   }
   thead th {
@@ -60,7 +56,7 @@
     position: relative;
   }
   tbody td:hover:before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;

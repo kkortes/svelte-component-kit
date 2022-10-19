@@ -117,18 +117,14 @@
 </div>
 
 <div class="panel">
-  <Crow gutter={20}>
-    <div>
-      <InteractiveTable {demoProps} {changeProp} />
-    </div>
-    <div>
-      <Code>
-        {`<Tooltip
+  <Crow gap={20}>
+    <InteractiveTable {demoProps} {changeProp} />
+    <Code>
+      {`<Tooltip
 ${formatProps(demoProps)}>
   Hover me!
 </Tooltip>`}
-      </Code>
-    </div>
+    </Code>
   </Crow>
 </div>
 

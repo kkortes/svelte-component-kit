@@ -64,17 +64,13 @@
 </div>
 
 <div class="panel">
-  <Crow gutter={20}>
-    <div>
-      <InteractiveTable {demoProps} {changeProp} />
-    </div>
-    <div>
-      <Code>
-        {`<Hexagon
+  <Crow gap={20}>
+    <InteractiveTable {demoProps} {changeProp} />
+    <Code>
+      {`<Hexagon
 ${formatProps(demoProps)}>
   <Icon name="logo-svelte" size={60} />
 </Hexagon>`}
-      </Code>
-    </div>
+    </Code>
   </Crow>
 </div>

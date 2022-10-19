@@ -13,7 +13,7 @@
   };
 </script>
 
-<Crow up style="grid-template-columns: auto 1fr; grid-auto-rows: 1fr;  height: 100%;">
+<Crow down>
   <div class="sidebar" on:click={toggleSidebar} class:open={$store.sidebarOpen}>
     <Navigation />
     <div class="minimize-panel">
@@ -49,9 +49,9 @@
     position: relative;
     width: 50px;
     overflow: hidden;
-    transition: width 0.25s ease;
     z-index: 1;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: width 0.25s ease;
   }
   .sidebar.open {
     width: 185px;
@@ -60,7 +60,7 @@
     overflow: hidden;
     overflow-y: scroll;
     height: 100%;
-    width: 100%;
+    flex: 1;
   }
   :global(.title) {
     position: relative;

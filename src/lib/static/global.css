@@ -119,12 +119,12 @@ pre .token {
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 0.75);
-  margin: 10px 0 30px 0;
+  /* margin: 10px 0 30px 0;
+  width: 100%; */
 }
 th,
 td {

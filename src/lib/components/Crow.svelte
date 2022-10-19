@@ -1,4 +1,6 @@
 <script>
+  const { isInteger } = Number;
+
   const styles = (styles, style = '') => {
     const combined = ((styles, style) => ({
       style: `${Object.entries(styles)
@@ -12,14 +14,13 @@
     return combined?.style ? combined : {};
   };
 
-  export let gutter = undefined;
+  export let gap = 'normal normal';
   export let vertical = false;
-  export let fly = false;
   export let up = false;
   export let right = false;
-  export let left = false;
   export let down = false;
-  export let fit = undefined;
+  export let left = false;
+  export let fly = false;
 
   let { class: classes, style, ...props } = $$restProps;
 </script>
@@ -27,19 +28,16 @@
 <div
   {...props}
   class={['crow', classes].filter((v) => v).join(' ')}
-  class:vertical
   class:horizontal={!vertical}
-  class:fit
-  class:fly
+  class:vertical
   class:up
   class:right
   class:down
   class:left
+  class:fly
   {...styles(
     {
-      gap: typeof gutter === 'number' && `${gutter * 2}px`,
-      ['--fit']:
-        typeof fit !== 'undefined' && `calc(${typeof fit === 'number' ? `${fit}px` : fit})`,
+      '--gap': isInteger(gap) ? `${gap}px` : gap,
     },
     style,
   )}
@@ -49,53 +47,59 @@
 
 <style>
   .crow {
-    display: grid;
-    min-height: 100%;
-    min-width: 100%;
-    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
     justify-content: center;
     align-items: center;
-    justify-items: center;
+  }
+  .horizontal {
+    min-width: 100%;
+    flex-direction: row;
   }
   .vertical {
-    min-height: 0; /* allows Safari to generate new rows when using "fit" and "vertical"  */
+    flex-direction: column;
   }
-  .up {
-    align-items: start;
-    align-content: start;
-  }
+  .left,
   .right {
-    justify-content: end;
-    justify-items: end;
+    min-width: 100%;
   }
+  .up,
   .down {
-    align-content: end;
-    align-items: end;
+    height: 100%;
   }
-  .left {
-    justify-content: start;
-    justify-items: start;
+  .horizontal.up {
+    align-content: flex-start;
+    align-items: flex-start;
   }
-  .vertical:not(.fit) {
-    grid-auto-flow: row;
-    justify-content: stretch;
+  .horizontal.down {
+    align-content: flex-end;
+    align-items: flex-end;
   }
-  .horizontal:not(.fit) {
-    grid-auto-flow: column;
-    align-content: stretch;
+  .vertical.up {
+    justify-content: flex-start;
   }
-  .vertical.fit {
-    grid-auto-flow: column;
-    grid-template-rows: repeat(auto-fit, minmax(0, var(--fit, auto)));
+  .vertical.down {
+    justify-content: flex-end;
   }
-  .horizontal.fit {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fit, minmax(0, var(--fit, auto)));
+  .horizontal.right {
+    justify-content: flex-end;
   }
-  .vertical.fly {
-    grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+  .horizontal.left {
+    justify-content: flex-start;
   }
-  .horizontal.fly {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  .vertical.right {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+  .vertical.left {
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  :global(.crow.fly.vertical) {
+    min-height: 100%;
+  }
+  :global(.crow.fly > *) {
+    flex-grow: 1;
   }
 </style>

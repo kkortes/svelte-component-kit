@@ -3,10 +3,11 @@
 <style>
   :global(.component) {
     position: relative;
-    display: flex;
+    display: grid;
     width: 100%;
     min-height: 50vh;
     background-image: url(/grid.png);
+    place-items: center;
   }
   :global(.panel) {
     display: flex;
