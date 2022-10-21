@@ -2,7 +2,7 @@
 
 Clean and easy-to-use svelte components.
 
-I'll be adding components to this kit over time.
+Components will be added to this kit over time.
 
 ## Publish to npm
 
