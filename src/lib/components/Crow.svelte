@@ -37,7 +37,7 @@
   class:fly
   {...styles(
     {
-      '--gap': isInteger(gap) ? `${gap}px` : gap,
+      '--gap': isInteger(gap) ? `${gap*2}px` : gap,
     },
     style,
   )}
@@ -54,15 +54,12 @@
     align-items: center;
   }
   .horizontal {
-    min-width: 100%;
     flex-direction: row;
+    min-width: 100%;
   }
   .vertical {
     flex-direction: column;
-  }
-  .left,
-  .right {
-    min-width: 100%;
+    width: 100%;
   }
   .up,
   .down {
@@ -99,7 +96,10 @@
   :global(.crow.fly.vertical) {
     min-height: 100%;
   }
+  :global(.crow > .crow),
   :global(.crow.fly > *) {
-    flex-grow: 1;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
   }
 </style>
