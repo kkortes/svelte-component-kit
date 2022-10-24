@@ -48,13 +48,13 @@
 <style>
   .crow {
     display: flex;
-    flex-wrap: wrap;
     gap: var(--gap);
     justify-content: center;
     align-items: center;
   }
   .horizontal {
     flex-direction: row;
+		flex-wrap: wrap;
     min-width: 100%;
   }
   .vertical {
