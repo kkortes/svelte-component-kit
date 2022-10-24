@@ -13,11 +13,7 @@
     prism = Prism;
   });
 
-  $: {
-    if (prism) {
-      finalOutput = prism.highlight(html, prism.languages.svelte, 'svelte');
-    }
-  }
+  $: prism && (finalOutput = prism.highlight(html, prism.languages.svelte, 'svelte'));
 </script>
 
 <div
@@ -32,7 +28,5 @@
 </div>
 
 <pre class="language-svelte">
-  <code>
-    {@html finalOutput}
-  </code>
+{@html finalOutput}
 </pre>

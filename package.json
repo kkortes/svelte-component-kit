@@ -7,6 +7,10 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview"
   },
+  "engines": {
+    "node": "16.9.0",
+    "npm": "7.21.1"
+  },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
