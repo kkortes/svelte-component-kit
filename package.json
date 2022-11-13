@@ -1,11 +1,15 @@
 {
   "name": "svelte-component-kit",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview"
+  },
+  "engines": {
+    "node": "16.9.0",
+    "npm": "7.21.1"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "next",
