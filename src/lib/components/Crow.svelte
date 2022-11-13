@@ -22,7 +22,7 @@
   export let left = false;
   export let fly = false;
 
-  let { class: classes, style, ...props } = $$restProps;
+  $: ({ class: classes, style, ...props } = $$restProps); // this must be reactive so that "style" can change conditionally
 </script>
 
 <div
